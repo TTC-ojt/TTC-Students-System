@@ -1,0 +1,143 @@
+F:\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csprojResolveAssemblyReference.cache
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Properties.Resources.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.Pay.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.PaymentAndHistory.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Home.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Main.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.CompanyOfEmployment.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.ProgramProfile.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.SubjectMaintenance.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.Teachers.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.TeachersAndSubjectExpertise.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.TuitionFee.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.TVETProvidersProfile.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Documents.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Grades.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.ChooseProgram.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.LearnerClassification.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.ManPowerProfile.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.PersonalInformation.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.AssessmentAndCertification.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.EditAssessment.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.EditLearnerClassification.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.EditManpowerProfile.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.EditPersonalInformation.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.EditStudentProfileCourse.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.EmploymentStatus.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.ListOfStudents.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.StudentsProfile.resources
+F:\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.StudentStatus.resources
+F:\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csproj.GenerateResource.Cache
+F:\TTC Students System\TTC Students System\obj\Debug\TTC Students System.exe
+F:\TTC Students System\TTC Students System\obj\Debug\TTC Students System.pdb
+F:\TTC Students System\TTC Students System\bin\Debug\TTC Students System.exe.config
+F:\TTC Students System\TTC Students System\bin\Debug\TTC Students System.exe
+F:\TTC Students System\TTC Students System\bin\Debug\TTC Students System.pdb
+F:\TTC Students System\TTC Students System\bin\Debug\MySql.Data.dll
+F:\TTC Students System\TTC Students System\bin\Debug\MySql.Data.xml
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csprojResolveAssemblyReference.cache
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Properties.Resources.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.Pay.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.TransactionHistory.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Home.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Main.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.Companies.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.ProgramProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.SubjectMaintenance.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.Teachers.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.TuitionFee.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.TVETProvidersProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.ChooseCompany.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.InPlants.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.SelectStudent.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.TimeRecords.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Insurances.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Documents.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Grades.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.ChooseProgram.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.Examinations.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.LearnerClassification.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.ManPowerProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.PersonalInformation.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.UpdateGraduate.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.AssessmentAndCertification.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditAssessment.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditLearnerClassification.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditManpowerProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditPersonalInformation.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EmploymentStatus.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.Examinations.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.ListOfStudents.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.StudentsProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.StudentsStatus.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csproj.GenerateResource.Cache
+D:\..projects\TTC Students System\TTC Students System\bin\Debug\TTC Students System.exe.config
+D:\..projects\TTC Students System\TTC Students System\bin\Debug\TTC Students System.exe
+D:\..projects\TTC Students System\TTC Students System\bin\Debug\TTC Students System.pdb
+D:\..projects\TTC Students System\TTC Students System\bin\Debug\MySql.Connection.dll
+D:\..projects\TTC Students System\TTC Students System\bin\Debug\MySql.Data.dll
+D:\..projects\TTC Students System\TTC Students System\bin\Debug\MySql.Connection.pdb
+D:\..projects\TTC Students System\TTC Students System\bin\Debug\MySql.Data.xml
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\TTC Students System.exe
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\TTC Students System.pdb
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.ExportToExcel.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.CompanyPayrollSummary.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.ComputeTime.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.UpdateStopped.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.UpdateDropped.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.UpdateTuition.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.StatementOfAccount.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.Payroll.resources
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\TTC Students System.exe.config
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\TTC Students System.exe
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\TTC Students System.pdb
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Connection.dll
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Data.dll
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Connection.pdb
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csprojResolveAssemblyReference.cache
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Properties.Resources.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.Pay.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.TransactionHistory.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.UpdateTuition.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.ExportToExcel.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Home.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Main.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.Companies.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.ProgramProfile.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.SubjectMaintenance.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.Teachers.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.TuitionFee.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Maintenance.TVETProvidersProfile.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.ChooseCompany.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.CompanyPayrollSummary.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.InPlants.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.ComputeTime.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.SelectStudent.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.TimeRecords.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.Payroll.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.StatementOfAccount.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Insurances.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Documents.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Grades.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.ChooseProgram.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.Examinations.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.LearnerClassification.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.ManPowerProfile.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Registration.PersonalInformation.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.UpdateStopped.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.UpdateDropped.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.UpdateGraduate.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.AssessmentAndCertification.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditAssessment.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditLearnerClassification.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditManpowerProfile.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EditPersonalInformation.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.EmploymentStatus.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Students.Examinations.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.ListOfStudents.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.StudentsProfile.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Status.StudentsStatus.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csproj.GenerateResource.Cache
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.exe
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.pdb
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Data.xml

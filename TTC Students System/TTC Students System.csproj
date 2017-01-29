@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C3D69E3-AD3B-4856-BC2F-C208DD635D00}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GN.TTC.Students</RootNamespace>
+    <AssemblyName>TTC Students System</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GN.TTC.Students.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ttc.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ExcelLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Connection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..projects\MySQL.Connection\MySql.Connection\bin\Debug\MySql.Connection.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Billing.cs" />
+    <Compile Include="Controllers\Payroll.cs" />
+    <Compile Include="Controllers\Main.cs" />
+    <Compile Include="Controllers\Maintenance.cs" />
+    <Compile Include="Controllers\Records.cs" />
+    <Compile Include="Controllers\Registration.cs" />
+    <Compile Include="Controllers\StudentsList.cs" />
+    <Compile Include="Controllers\StudentsStatus.cs" />
+    <Compile Include="Models\Drop.cs" />
+    <Compile Include="Models\Graduate.cs" />
+    <Compile Include="Models\Stop.cs" />
+    <Compile Include="Models\InPlant.cs" />
+    <Compile Include="Models\Insurance.cs" />
+    <Compile Include="Models\Assessment.cs" />
+    <Compile Include="Models\Batch.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\Employment.cs" />
+    <Compile Include="Models\Fee.cs" />
+    <Compile Include="Models\DTR.cs" />
+    <Compile Include="Models\Grade.cs" />
+    <Compile Include="Models\YP4SC.cs" />
+    <Compile Include="Models\NCAE.cs" />
+    <Compile Include="Models\MATB.cs" />
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\Provider.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\Training.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Views\Billing\Pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Billing\Pay.Designer.cs">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Billing\TransactionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Billing\TransactionHistory.designer.cs">
+      <DependentUpon>TransactionHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Billing\UpdateTuition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Billing\UpdateTuition.Designer.cs">
+      <DependentUpon>UpdateTuition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExportToExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ExportToExcel.Designer.cs">
+      <DependentUpon>ExportToExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Payroll\Companies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\Companies.Designer.cs">
+      <DependentUpon>Companies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Maintenance\ProgramProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Maintenance\ProgramProfile.Designer.cs">
+      <DependentUpon>ProgramProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Maintenance\SubjectMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Maintenance\SubjectMaintenance.Designer.cs">
+      <DependentUpon>SubjectMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Maintenance\Teachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Maintenance\Teachers.Designer.cs">
+      <DependentUpon>Teachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Maintenance\TuitionFee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Maintenance\TuitionFee.Designer.cs">
+      <DependentUpon>TuitionFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Maintenance\TVETProvidersProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Maintenance\TVETProvidersProfile.Designer.cs">
+      <DependentUpon>TVETProvidersProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payroll\ChooseCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\ChooseCompany.Designer.cs">
+      <DependentUpon>ChooseCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payroll\CompanyPayrollSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\CompanyPayrollSummary.Designer.cs">
+      <DependentUpon>CompanyPayrollSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payroll\InPlants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\InPlants.designer.cs">
+      <DependentUpon>InPlants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payroll\ComputeTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\ComputeTime.Designer.cs">
+      <DependentUpon>ComputeTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payroll\SelectStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\SelectStudent.Designer.cs">
+      <DependentUpon>SelectStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payroll\TimeRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\TimeRecords.Designer.cs">
+      <DependentUpon>TimeRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Print\Payroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Print\Payroll.designer.cs">
+      <DependentUpon>Payroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Records\StatementOfAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Records\StatementOfAccount.designer.cs">
+      <DependentUpon>StatementOfAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Records\Insurances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Records\Insurances.Designer.cs">
+      <DependentUpon>Insurances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Records\Documents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Records\Documents.Designer.cs">
+      <DependentUpon>Documents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Records\Grades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Records\Grades.Designer.cs">
+      <DependentUpon>Grades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChooseProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChooseProgram.Designer.cs">
+      <DependentUpon>ChooseProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registration\Examinations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Registration\Examinations.Designer.cs">
+      <DependentUpon>Examinations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registration\LearnerClassification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Registration\LearnerClassification.Designer.cs">
+      <DependentUpon>LearnerClassification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registration\ManPowerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Registration\ManPowerProfile.Designer.cs">
+      <DependentUpon>ManPowerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registration\PersonalInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Registration\PersonalInformation.Designer.cs">
+      <DependentUpon>PersonalInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Status\UpdateStopped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Status\UpdateStopped.Designer.cs">
+      <DependentUpon>UpdateStopped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Status\UpdateDropped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Status\UpdateDropped.Designer.cs">
+      <DependentUpon>UpdateDropped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Status\UpdateGraduate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Status\UpdateGraduate.Designer.cs">
+      <DependentUpon>UpdateGraduate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\AssessmentAndCertification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\AssessmentAndCertification.Designer.cs">
+      <DependentUpon>AssessmentAndCertification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\EditAssessment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\EditAssessment.Designer.cs">
+      <DependentUpon>EditAssessment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\EditLearnerClassification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\EditLearnerClassification.Designer.cs">
+      <DependentUpon>EditLearnerClassification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\EditManpowerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\EditManpowerProfile.Designer.cs">
+      <DependentUpon>EditManpowerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\EditPersonalInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\EditPersonalInformation.Designer.cs">
+      <DependentUpon>EditPersonalInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\EmploymentStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\EmploymentStatus.Designer.cs">
+      <DependentUpon>EmploymentStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\Examinations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\Examinations.Designer.cs">
+      <DependentUpon>Examinations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\ListOfStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\ListOfStudents.Designer.cs">
+      <DependentUpon>ListOfStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students\StudentsProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Students\StudentsProfile.Designer.cs">
+      <DependentUpon>StudentsProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Status\StudentsStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Status\StudentsStatus.Designer.cs">
+      <DependentUpon>StudentsStatus.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\Billing\Pay.resx">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Billing\TransactionHistory.resx">
+      <DependentUpon>TransactionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Billing\UpdateTuition.resx">
+      <DependentUpon>UpdateTuition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ExportToExcel.resx">
+      <DependentUpon>ExportToExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\Companies.resx">
+      <DependentUpon>Companies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Maintenance\ProgramProfile.resx">
+      <DependentUpon>ProgramProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Maintenance\SubjectMaintenance.resx">
+      <DependentUpon>SubjectMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Maintenance\Teachers.resx">
+      <DependentUpon>Teachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Maintenance\TuitionFee.resx">
+      <DependentUpon>TuitionFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Maintenance\TVETProvidersProfile.resx">
+      <DependentUpon>TVETProvidersProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\ChooseCompany.resx">
+      <DependentUpon>ChooseCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\CompanyPayrollSummary.resx">
+      <DependentUpon>CompanyPayrollSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\InPlants.resx">
+      <DependentUpon>InPlants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\ComputeTime.resx">
+      <DependentUpon>ComputeTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\SelectStudent.resx">
+      <DependentUpon>SelectStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\TimeRecords.resx">
+      <DependentUpon>TimeRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Print\Payroll.resx">
+      <DependentUpon>Payroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Records\StatementOfAccount.resx">
+      <DependentUpon>StatementOfAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Records\Insurances.resx">
+      <DependentUpon>Insurances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Records\Documents.resx">
+      <DependentUpon>Documents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Records\Grades.resx">
+      <DependentUpon>Grades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChooseProgram.resx">
+      <DependentUpon>ChooseProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Registration\Examinations.resx">
+      <DependentUpon>Examinations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Registration\LearnerClassification.resx">
+      <DependentUpon>LearnerClassification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Registration\ManPowerProfile.resx">
+      <DependentUpon>ManPowerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Registration\PersonalInformation.resx">
+      <DependentUpon>PersonalInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Status\UpdateStopped.resx">
+      <DependentUpon>UpdateStopped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Status\UpdateDropped.resx">
+      <DependentUpon>UpdateDropped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Status\UpdateGraduate.resx">
+      <DependentUpon>UpdateGraduate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\AssessmentAndCertification.resx">
+      <DependentUpon>AssessmentAndCertification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\EditAssessment.resx">
+      <DependentUpon>EditAssessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\EditLearnerClassification.resx">
+      <DependentUpon>EditLearnerClassification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\EditManpowerProfile.resx">
+      <DependentUpon>EditManpowerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\EditPersonalInformation.resx">
+      <DependentUpon>EditPersonalInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\EmploymentStatus.resx">
+      <DependentUpon>EmploymentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\Examinations.resx">
+      <DependentUpon>Examinations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\ListOfStudents.resx">
+      <DependentUpon>ListOfStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Students\StudentsProfile.resx">
+      <DependentUpon>StudentsProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Status\StudentsStatus.resx">
+      <DependentUpon>StudentsStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ttc.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

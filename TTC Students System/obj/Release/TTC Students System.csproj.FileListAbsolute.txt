@@ -1,0 +1,35 @@
+D:\..projects\TTC Students System\TTC Students System\bin\Release\TTC Students System.exe.config
+D:\..projects\TTC Students System\TTC Students System\bin\Release\TTC Students System.exe
+D:\..projects\TTC Students System\TTC Students System\bin\Release\TTC Students System.pdb
+D:\..projects\TTC Students System\TTC Students System\bin\Release\MySql.Data.dll
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Properties.Resources.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Billing.Pay.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Billing.PaymentAndHistory.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Home.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Main.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Maintenance.CompanyOfEmployment.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Maintenance.ProgramProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Maintenance.SubjectMaintenance.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Maintenance.Teachers.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Maintenance.TeachersAndSubjectExpertise.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Maintenance.TuitionFee.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Maintenance.TVETProvidersProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Records.Documents.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Records.Grades.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.ChooseProgram.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Registration.LearnerClassification.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Registration.ManPowerProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Registration.PersonalInformation.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.AssessmentAndCertification.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.EditAssessment.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.EditLearnerClassification.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.EditManpowerProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.EditPersonalInformation.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.EditStudentProfileCourse.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.EmploymentStatus.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.ListOfStudents.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.StudentsProfile.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\GN.TTC.Students.Views.Students.StudentStatus.resources
+D:\..projects\TTC Students System\TTC Students System\obj\Release\TTC Students System.csproj.GenerateResource.Cache
+D:\..projects\TTC Students System\TTC Students System\obj\Release\TTC Students System.exe
+D:\..projects\TTC Students System\TTC Students System\obj\Release\TTC Students System.pdb
