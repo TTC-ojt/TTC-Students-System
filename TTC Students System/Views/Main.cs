@@ -62,5 +62,11 @@ namespace GN.TTC.Students.Views
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btnConnectionSettings_Click(object sender, EventArgs e)
+        {
+            ConnectionSettings cs = new ConnectionSettings();
+            cs.ShowDialog();
+        }
     }
 }

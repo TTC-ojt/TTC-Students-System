@@ -42,20 +42,19 @@
             this.txtProgramTitle = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnChangeCourse = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnGrades = new System.Windows.Forms.Button();
             this.btnEmployment = new System.Windows.Forms.Button();
             this.btnAssessment = new System.Windows.Forms.Button();
             this.dgvStudentsLists = new System.Windows.Forms.DataGridView();
-            this.btnProfile = new System.Windows.Forms.Button();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.colStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnProfile = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsLists)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +72,7 @@
             this.panel1.Controls.Add(this.txtProgramTitle);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.btnChangeCourse);
-            this.panel1.Controls.Add(this.btnPrint);
+            this.panel1.Controls.Add(this.btnExportToExcel);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnGrades);
@@ -126,6 +125,7 @@
             this.label7.TabIndex = 89;
             this.label7.Text = "Student:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // cbxBatch
             // 
@@ -221,24 +221,24 @@
             this.btnChangeCourse.UseVisualStyleBackColor = false;
             this.btnChangeCourse.Click += new System.EventHandler(this.btnChangeCourse_Click);
             // 
-            // btnPrint
+            // btnExportToExcel
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.Silver;
-            this.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnPrint.FlatAppearance.BorderSize = 2;
-            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(743, 601);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(0, 3, 10, 3);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(69, 63);
-            this.btnPrint.TabIndex = 9;
-            this.btnPrint.Text = "PRINT";
-            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
+            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
+            this.btnExportToExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
+            this.btnExportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
+            this.btnExportToExcel.Location = new System.Drawing.Point(743, 601);
+            this.btnExportToExcel.Margin = new System.Windows.Forms.Padding(0, 3, 10, 3);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(69, 63);
+            this.btnExportToExcel.TabIndex = 9;
+            this.btnExportToExcel.Text = "Export to Excel";
+            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExportToExcel.UseVisualStyleBackColor = false;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
             // 
             // label5
             // 
@@ -338,6 +338,7 @@
             this.dgvStudentsLists.AllowUserToDeleteRows = false;
             this.dgvStudentsLists.AllowUserToResizeColumns = false;
             this.dgvStudentsLists.AllowUserToResizeRows = false;
+            this.dgvStudentsLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -351,7 +352,8 @@
             this.colStudentID,
             this.studentNumber,
             this.studentName,
-            this.Column1});
+            this.Column1,
+            this.Column2});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -362,7 +364,6 @@
             this.dgvStudentsLists.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudentsLists.Location = new System.Drawing.Point(5, 167);
             this.dgvStudentsLists.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.dgvStudentsLists.MultiSelect = false;
             this.dgvStudentsLists.Name = "dgvStudentsLists";
             this.dgvStudentsLists.ReadOnly = true;
             this.dgvStudentsLists.RowHeadersVisible = false;
@@ -370,6 +371,46 @@
             this.dgvStudentsLists.Size = new System.Drawing.Size(659, 421);
             this.dgvStudentsLists.TabIndex = 4;
             this.dgvStudentsLists.SelectionChanged += new System.EventHandler(this.dgvStudentsLists_SelectionChanged);
+            this.dgvStudentsLists.Sorted += new System.EventHandler(this.dgvStudentsLists_Sorted);
+            // 
+            // colStudentID
+            // 
+            this.colStudentID.HeaderText = "ID";
+            this.colStudentID.Name = "colStudentID";
+            this.colStudentID.ReadOnly = true;
+            this.colStudentID.Visible = false;
+            this.colStudentID.Width = 27;
+            // 
+            // studentNumber
+            // 
+            this.studentNumber.FillWeight = 5F;
+            this.studentNumber.HeaderText = "#";
+            this.studentNumber.Name = "studentNumber";
+            this.studentNumber.ReadOnly = true;
+            this.studentNumber.Width = 39;
+            // 
+            // studentName
+            // 
+            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentName.FillWeight = 30F;
+            this.studentName.HeaderText = "NAME";
+            this.studentName.Name = "studentName";
+            this.studentName.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 20F;
+            this.Column1.HeaderText = "PROGRAM";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "BATCH";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 78;
             // 
             // btnProfile
             // 
@@ -391,52 +432,6 @@
             this.btnProfile.UseVisualStyleBackColor = false;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
-            // 
-            // printPreviewDialog
-            // 
-            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Enabled = true;
-            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
-            this.printPreviewDialog.Name = "printPreviewDialog1";
-            this.printPreviewDialog.Visible = false;
-            // 
-            // colStudentID
-            // 
-            this.colStudentID.HeaderText = "ID";
-            this.colStudentID.Name = "colStudentID";
-            this.colStudentID.ReadOnly = true;
-            this.colStudentID.Visible = false;
-            // 
-            // studentNumber
-            // 
-            this.studentNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.studentNumber.FillWeight = 5F;
-            this.studentNumber.HeaderText = "#";
-            this.studentNumber.Name = "studentNumber";
-            this.studentNumber.ReadOnly = true;
-            // 
-            // studentName
-            // 
-            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.studentName.FillWeight = 30F;
-            this.studentName.HeaderText = "NAME";
-            this.studentName.Name = "studentName";
-            this.studentName.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 20F;
-            this.Column1.HeaderText = "PROGRAM";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // ListOfStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,6 +444,7 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListOfStudents";
+            this.Load += new System.EventHandler(this.ListOfStudents_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsLists)).EndInit();
@@ -459,15 +455,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnExportToExcel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnEmployment;
         private System.Windows.Forms.Button btnAssessment;
         private System.Windows.Forms.DataGridView dgvStudentsLists;
         private System.Windows.Forms.Button btnProfile;
-        private System.Drawing.Printing.PrintDocument printDocument;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtCopr;
         private System.Windows.Forms.TextBox txtProgramTitle;
@@ -483,5 +477,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

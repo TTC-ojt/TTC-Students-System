@@ -24,12 +24,14 @@ namespace GN.TTC.Students.Views.Maintenance
         {
             programs = Models.Program.getAll();
             dgvProgramTitle.Rows.Clear();
+            int c = 1;
             foreach(Models.Program program in programs)
             {
                 string duration = "";
                 if(program.OneYear) duration = "One Year";
                 if(program.ShortCourse) duration = "Short Course";
-                dgvProgramTitle.Rows.Add(program.ID, program.Copr, program.Title, duration, program.Tuition);
+                dgvProgramTitle.Rows.Add(program.ID, c, program.Copr, program.Title, duration, program.Tuition);
+                c++;
             }
             dgvProgramTitle.ClearSelection();
         }
@@ -47,14 +49,15 @@ namespace GN.TTC.Students.Views.Maintenance
             program.Tuition = nudTuition.Value;
             program.Hours = Convert.ToInt16(nudNumberOfHours.Value);
             program.Save();
-            Models.Fee fee = new Models.Fee();
-            fee.ProgramID = program.ID;
-            fee.Save();
             loadProgramProfile();
         }
 
         private void ProgramProfile_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn col in dgvProgramTitle.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             loadProgramProfile();
         }
 

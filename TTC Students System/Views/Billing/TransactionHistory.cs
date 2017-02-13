@@ -61,22 +61,27 @@ namespace GN.TTC.Students.Views.Billing
         {
             students = Models.Student.Find("", program.ID, batch.ID);
             dgvStudents.Rows.Clear();
+            int c = 1;
             foreach (Models.Student student in students)
             {
-                string studentname = "";
-                studentname = student.LastName + ", " + student.FirstName + " " + student.MiddleName;
-                dgvStudents.Rows.Add(student.ID, student.Number, studentname, student.Tuition.ToString("N"), Models.Transaction.GetBalance(student.ID).ToString("N"));
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), student.Tuition.ToString("N"), Models.Transaction.GetBalance(student.ID).ToString("N"));
+                c++;
             }
         }
 
         private void btnEditTuition_Click(object sender, EventArgs e)
         {
-            if (dgvStudents.SelectedRows.Count > 0)
+            UpdateTuition ut = new UpdateTuition();
+            if (ut.ShowDialog() == DialogResult.OK)
             {
-                int id = Convert.ToInt32(dgvStudents.SelectedRows[0].Cells[0].Value);
-                UpdateTuition ut = new UpdateTuition();
-                ut.student = students.Find(s => s.ID == id);
-                ut.ShowDialog();
+                decimal tuition = ut.tuition;
+                foreach (DataGridViewRow row in dgvStudents.SelectedRows)
+                {
+                    int id = Convert.ToInt32(row.Cells[0].Value);
+                    Models.Student student = students.Find(s => s.ID == id);
+                    student.Tuition = tuition;
+                    student.Save();
+                }
                 LoadStudents();
             }
         }
@@ -171,6 +176,14 @@ namespace GN.TTC.Students.Views.Billing
             psPrint = true;
             printDocument.DefaultPageSettings.Landscape = true;
             printPreviewDialog.ShowDialog();
+        }
+
+        private void TransactionHistory_Load(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn col in dgvStudents.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
     }
 }

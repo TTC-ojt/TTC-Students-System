@@ -49,9 +49,11 @@ namespace GN.TTC.Students.Views.Billing
             lblCurrentBalance.Text = Models.Transaction.GetBalance(student.ID).ToString("N");
             transactions = Models.Transaction.getTransactionsByStudent(student.ID);
             dgvPaymentHistory.Rows.Clear();
+            int c = 1;
             foreach (Models.Transaction transaction in transactions)
             {
-                dgvPaymentHistory.Rows.Add(transaction.Code, transaction.DateTime, transaction.Amount);
+                dgvPaymentHistory.Rows.Add(c,transaction.Code, transaction.DateTime, transaction.Amount);
+                c++;
             }
         }
 

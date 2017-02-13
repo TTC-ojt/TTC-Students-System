@@ -50,11 +50,6 @@
             this.txtTrainingCalendarCode = new System.Windows.Forms.TextBox();
             this.txtDelivery = new System.Windows.Forms.TextBox();
             this.dgvProgramTitle = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coprNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tuitionFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,6 +58,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coprNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuitionFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTuition)).BeginInit();
@@ -330,9 +330,9 @@
             this.dgvProgramTitle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProgramTitle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.Column1,
             this.coprNumber,
             this.courseTitle,
-            this.duration,
             this.tuitionFee});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -352,45 +352,6 @@
             this.dgvProgramTitle.Size = new System.Drawing.Size(591, 229);
             this.dgvProgramTitle.TabIndex = 0;
             this.dgvProgramTitle.SelectionChanged += new System.EventHandler(this.dgvProgramTitle_SelectionChanged);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // coprNumber
-            // 
-            this.coprNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.coprNumber.FillWeight = 25F;
-            this.coprNumber.HeaderText = "CoPR NUMBER";
-            this.coprNumber.Name = "coprNumber";
-            this.coprNumber.ReadOnly = true;
-            // 
-            // courseTitle
-            // 
-            this.courseTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.courseTitle.FillWeight = 45F;
-            this.courseTitle.HeaderText = "TITLE";
-            this.courseTitle.Name = "courseTitle";
-            this.courseTitle.ReadOnly = true;
-            // 
-            // duration
-            // 
-            this.duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.duration.FillWeight = 15F;
-            this.duration.HeaderText = "DURATION";
-            this.duration.Name = "duration";
-            this.duration.ReadOnly = true;
-            // 
-            // tuitionFee
-            // 
-            this.tuitionFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tuitionFee.FillWeight = 15F;
-            this.tuitionFee.HeaderText = "TUITION";
-            this.tuitionFee.Name = "tuitionFee";
-            this.tuitionFee.ReadOnly = true;
             // 
             // label4
             // 
@@ -473,6 +434,45 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 5F;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // coprNumber
+            // 
+            this.coprNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.coprNumber.FillWeight = 20F;
+            this.coprNumber.HeaderText = "CoPR NUMBER";
+            this.coprNumber.Name = "coprNumber";
+            this.coprNumber.ReadOnly = true;
+            // 
+            // courseTitle
+            // 
+            this.courseTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.courseTitle.FillWeight = 45F;
+            this.courseTitle.HeaderText = "TITLE";
+            this.courseTitle.Name = "courseTitle";
+            this.courseTitle.ReadOnly = true;
+            // 
+            // tuitionFee
+            // 
+            this.tuitionFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tuitionFee.FillWeight = 15F;
+            this.tuitionFee.HeaderText = "TUITION";
+            this.tuitionFee.Name = "tuitionFee";
+            this.tuitionFee.ReadOnly = true;
+            // 
             // ProgramProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,11 +515,6 @@
         private System.Windows.Forms.TextBox txtTrainingCalendarCode;
         private System.Windows.Forms.TextBox txtDelivery;
         private System.Windows.Forms.DataGridView dgvProgramTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coprNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tuitionFee;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
@@ -529,5 +524,10 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coprNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courseTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuitionFee;
     }
 }

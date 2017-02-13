@@ -12,13 +12,16 @@ namespace GN.TTC.Students.Views
 {
     public partial class ExportToExcel : Form
     {
-        public ExportToExcel()
+        internal ExportToExcel(Controllers.Maintenance cMaintenance)
         {
             InitializeComponent();
+            this.cMaintenance = cMaintenance;
         }
+
+        Controllers.Maintenance cMaintenance;
         
         DataTable table = new DataTable();
-        DataSet source = new DataSet();
+        BindingSource source = new BindingSource();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
 
         internal Models.Program program = new Models.Program();
@@ -33,12 +36,14 @@ namespace GN.TTC.Students.Views
             if (batch.ID > 0)
             {
                 table = new DataTable();
+                Print.ExcelExport ex = new Print.ExcelExport();
+                ex.dgvExport.DataSource = source;
                 adapter = Models.Student.GetDataAdapter(batch.ID);
-                source.Locale = System.Globalization.CultureInfo.CurrentCulture;
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
                 adapter.Fill(table);
-                source.Tables.Add(table);
-                
-                ExcelLibrary.DataSetHelper.CreateWorkbook(AppDomain.CurrentDomain.BaseDirectory + "/mis.xls", source);
+                source.DataSource = table;
+                ex.Show();
+                ex.Close();
             }
         }
 
@@ -49,6 +54,7 @@ namespace GN.TTC.Students.Views
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            cMaintenance.Close();
         }
 
         private void btnChangeCourse_Click(object sender, EventArgs e)
@@ -90,13 +96,24 @@ namespace GN.TTC.Students.Views
         private void btnInPlantSummary_Click(object sender, EventArgs e)
         {
             table = new DataTable();
-            source = new DataSet();
+            Print.ExcelExport ex = new Print.ExcelExport();
+            ex.dgvExport.DataSource = source;
             adapter = Models.InPlant.GetDataAdapter();
-            source.Locale = System.Globalization.CultureInfo.CurrentCulture;
+            table.Locale = System.Globalization.CultureInfo.InvariantCulture;
             adapter.Fill(table);
-            source.Tables.Add(table);
+            source.DataSource = table;
+            ex.Show();
+            ex.Close();
+        }
 
-            ExcelLibrary.DataSetHelper.CreateWorkbook(AppDomain.CurrentDomain.BaseDirectory + "/inplants.xls", source);
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProgramTitle_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

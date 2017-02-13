@@ -66,21 +66,23 @@ namespace GN.TTC.Students.Views.Records
         {
             students = Models.Student.getByBatch(batch.ID);
             dgvChecklist.Rows.Clear();
+            int c = 1;
             foreach (Models.Student student in students)
             {
                 Models.Document document = Models.Document.getByStudent(student.ID);
                 if (rbtnComplete.Checked && document.IsComplete())
                 {
-                    dgvChecklist.Rows.Add(student.ID, student.GetFullName(), document.C137, document.C138, document.GoodMoral, document.BirthCert, document.Pictures, document.Diploma, document.BrgyClearance, document.Envelope, document.Remarks);
+                    dgvChecklist.Rows.Add(student.ID, c, student.GetFullName(), document.C137, document.C138, document.GoodMoral, document.BirthCert, document.Pictures, document.Diploma, document.BrgyClearance, document.Envelope, document.Remarks);
                 }
                 else if (rbtnIncomplete.Checked && !document.IsComplete())
                 {
-                    dgvChecklist.Rows.Add(student.ID, student.GetFullName(), document.C137, document.C138, document.GoodMoral, document.BirthCert, document.Pictures, document.Diploma, document.BrgyClearance, document.Envelope, document.Remarks);
+                    dgvChecklist.Rows.Add(student.ID, c, student.GetFullName(), document.C137, document.C138, document.GoodMoral, document.BirthCert, document.Pictures, document.Diploma, document.BrgyClearance, document.Envelope, document.Remarks);
                 }
                 else if (rbtnALL.Checked)
                 {
-                    dgvChecklist.Rows.Add(student.ID, student.GetFullName(), document.C137, document.C138, document.GoodMoral, document.BirthCert, document.Pictures, document.Diploma, document.BrgyClearance, document.Envelope, document.Remarks);
+                    dgvChecklist.Rows.Add(student.ID, c, student.GetFullName(), document.C137, document.C138, document.GoodMoral, document.BirthCert, document.Pictures, document.Diploma, document.BrgyClearance, document.Envelope, document.Remarks);
                 }
+                c++;
             }
         }
 
@@ -93,8 +95,9 @@ namespace GN.TTC.Students.Views.Records
         {
             foreach (DataGridViewRow row in dgvChecklist.Rows)
             {
-                int id = Convert.ToInt32(row.Cells[0].Value);
-                Models.Document document = Models.Document.getByStudent(id);
+                int StudentID = Convert.ToInt32(row.Cells[0].Value);
+                Models.Document document = Models.Document.getByStudent(StudentID);
+                document.StudentID = StudentID;
                 document.C137 = Convert.ToBoolean(row.Cells["dgc137"].Value);
                 document.C138 = Convert.ToBoolean(row.Cells["dgc138"].Value);
                 document.GoodMoral = Convert.ToBoolean(row.Cells["dgcGoodMoral"].Value);
@@ -129,6 +132,14 @@ namespace GN.TTC.Students.Views.Records
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
             e.Graphics.DrawImage(img, 0,50);
+        }
+
+        private void Documents_Load(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn col in dgvChecklist.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
     }
 }

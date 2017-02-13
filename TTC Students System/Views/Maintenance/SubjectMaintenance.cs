@@ -25,11 +25,13 @@ namespace GN.TTC.Students.Views.Maintenance
         {
             subjects = Models.Subject.getAllByProgram(program.ID);
             dgvSubjects.Rows.Clear();
+            int c = 1;
             foreach(Models.Subject subject in subjects)
             {
                 Models.Program program = Models.Program.getByID(subject.ProgramID);
                 subject.ProgramID = program.ID;
-                dgvSubjects.Rows.Add(subject.ID, subject.Type, subject.Code, subject.Title, subject.Hours);
+                dgvSubjects.Rows.Add(subject.ID, c, subject.Code, subject.Title, subject.Hours);
+                c++;
             }
             dgvSubjects.ClearSelection();
         }
@@ -108,6 +110,14 @@ namespace GN.TTC.Students.Views.Maintenance
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
             e.Graphics.DrawImage(img, e.PageBounds.Width / 2 - img.Width / 2, 50);
+        }
+
+        private void SubjectMaintenance_Load(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn col in dgvSubjects.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
     }
 }

@@ -120,13 +120,30 @@
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="companyName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAASxJREFUSEtj
+        GAUDAv47GAh8dzS1f2dl4H3LWCcPhs+HBTWcyM+fiAufrqpqONfZlgfDz2NCvUHmgMyDGo0ffHYxcfji
+        bPb/pY3R/2MaGnC8u7j8/4Z9R4nGj5Oi/oPM+eJsep4oy8mx2CMk+r+akQWYhokhLCbSctpYTITltLPY
+        7D/IbKg1mGDkWvzaFtXiPZk5KJYRwq+DPMizGIRBloN8DsO3YsOx4jtADPIhDGOzFISJtpjaeNRiFACz
+        +HtRxn9qAZBZA2Lxr4WzybP49sMn/8/fuEMyhgGyLf724+f/z1+/kYxhgGyL33749P/5m3ckYxgg2+In
+        L1+Dg5tUDANkW0wpGE1cWAHM4m9p0VBtlIPvdaXEW0wLjNdiULsIpIAWmOim7iigLmBgAACIxVWDKKgR
+        PwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAASFJREFUSEvt
@@ -151,7 +168,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAVJJREFUSEtj
         GBKgs2x+QHfJwnpsGCQHVUZd0F4xX6GrdOGB7pL5DtgwSK6/YL4AVDnpAGLIInt03FmycDLQ8FWdJYvy

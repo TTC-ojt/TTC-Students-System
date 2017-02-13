@@ -88,7 +88,7 @@ namespace GN.TTC.Students.Models
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM students WHERE batch_id = @batch_id";
+                    cmd.CommandText = "SELECT * FROM students WHERE batch_id = @batch_id ORDER BY lastname, firstname, middlename";
                     cmd.Parameters.AddWithValue("batch_id", BatchID);
                     con.Open();
                     using (MySqlDataReader rdr = cmd.ExecuteReader())
@@ -210,13 +210,13 @@ namespace GN.TTC.Students.Models
                     cmd.Connection = con;
                     if (ProgramID > 0 && BatchID > 0)
                     {
-                        cmd.CommandText = "SELECT students.id, students.batch_id, students.number, students.lastname, students.firstname, students.middlename, students.extname, students.tuition, students.status FROM students JOIN batches ON students.batch_id=batches.id JOIN programs ON batches.program_id=programs.id WHERE CONCAT_WS(' ', students.number, students.firstname, students.middlename, students.lastname) LIKE '%" + query + "%' AND programs.id=@program_id AND batches.id=@batch_id";
+                        cmd.CommandText = "SELECT students.id, students.batch_id, students.number, students.lastname, students.firstname, students.middlename, students.extname, students.tuition, students.status FROM students JOIN batches ON students.batch_id=batches.id JOIN programs ON batches.program_id=programs.id WHERE CONCAT_WS(' ', students.number, students.firstname, students.middlename, students.lastname) LIKE '%" + query + "%' AND programs.id=@program_id AND batches.id=@batch_id ORDER BY lastname, firstname, middlename";
                         cmd.Parameters.AddWithValue("program_id", ProgramID);
                         cmd.Parameters.AddWithValue("batch_id", BatchID);
                     }
                     else
                     {
-                        cmd.CommandText = "SELECT * FROM students WHERE CONCAT_WS(' ', number, firstname, middlename, lastname) LIKE '%" + query + "%'";
+                        cmd.CommandText = "SELECT * FROM students WHERE CONCAT_WS(' ', number, firstname, middlename, lastname) LIKE '%" + query + "%' ORDER BY lastname, firstname, middlename";
                     }
                     con.Open();
                     using (MySqlDataReader rdr = cmd.ExecuteReader())
@@ -256,13 +256,13 @@ namespace GN.TTC.Students.Models
                     cmd.Connection = con;
                     if (ProgramID > 0 && BatchID > 0)
                     {
-                        cmd.CommandText = "SELECT students.id, students.batch_id, students.number, students.lastname, students.firstname, students.middlename, students.extname, students.tuition, students.status FROM students JOIN batches ON students.batch_id=batches.id JOIN programs ON batches.program_id=programs.id WHERE CONCAT_WS(' ', students.number, students.firstname, students.middlename, students.lastname) LIKE '%" + query + "%' AND programs.id=@program_id AND batches.id=@batch_id AND students.status = @status";
+                        cmd.CommandText = "SELECT students.id, students.batch_id, students.number, students.lastname, students.firstname, students.middlename, students.extname, students.tuition, students.status FROM students JOIN batches ON students.batch_id=batches.id JOIN programs ON batches.program_id=programs.id WHERE CONCAT_WS(' ', students.number, students.firstname, students.middlename, students.lastname) LIKE '%" + query + "%' AND programs.id=@program_id AND batches.id=@batch_id AND students.status = @status ORDER BY lastname, firstname, middlename";
                         cmd.Parameters.AddWithValue("program_id", ProgramID);
                         cmd.Parameters.AddWithValue("batch_id", BatchID);
                     }
                     else
                     {
-                        cmd.CommandText = "SELECT * FROM students WHERE CONCAT_WS(' ', number, firstname, middlename, lastname) LIKE '%" + query + "%' AND status = @status";
+                        cmd.CommandText = "SELECT * FROM students WHERE CONCAT_WS(' ', number, firstname, middlename, lastname) LIKE '%" + query + "%' AND status = @status ORDER BY lastname, firstname, middlename";
                     }
                     cmd.Parameters.AddWithValue("@status", Status);
                     con.Open();

@@ -35,7 +35,7 @@ namespace GN.TTC.Students.Models
                     con.Open();
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "select companies.name, inplants.start_date, inplants.end_date, concat_ws(' ', students.firstname, students.middlename, students.lastname, students.extname) as 'Student', batches.number from companies join inplants on companies.id=inplants.company_id join students on students.id=inplants.student_id join batches on batches.id=students.batch_id";
+                    cmd.CommandText = "select companies.name AS 'COMPANY', inplants.start_date AS 'START DATE', inplants.end_date AS 'END DATE', concat_ws(' ', students.firstname, students.middlename, students.lastname, students.extname) as 'STUDENT', batches.number AS 'BATCH' from companies join inplants on companies.id=inplants.company_id join students on students.id=inplants.student_id join batches on batches.id=students.batch_id ORDER by inplants.end_date ASC";
                     adapter = new MySqlDataAdapter(cmd);
                     MySqlCommandBuilder cmdBuilder = new MySqlCommandBuilder(adapter);
                 }
@@ -79,7 +79,7 @@ namespace GN.TTC.Students.Models
             return inplant;
         }
 
-        internal static List<InPlant> getAllByCompanyAndDate(int CompanyID, DateTime StartDate, DateTime EndDate)
+        internal static List<InPlant> getAllByCompany(int CompanyID)
         {
             List<InPlant> inplants = new List<InPlant>();
 
@@ -89,10 +89,8 @@ namespace GN.TTC.Students.Models
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "SELECT * FROM inplants WHERE company_id = @company_id AND start_date <= DATE(@startdate) AND end_date >= DATE(@enddate)";
+                    cmd.CommandText = "SELECT * FROM inplants WHERE company_id = @company_id";
                     cmd.Parameters.AddWithValue("company_id", CompanyID);
-                    cmd.Parameters.AddWithValue("startdate", StartDate);
-                    cmd.Parameters.AddWithValue("enddate", EndDate);
                     con.Open();
                     using (MySqlDataReader rdr = cmd.ExecuteReader())
                     {

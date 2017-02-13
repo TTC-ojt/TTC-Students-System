@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportToExcel));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.cbxBatch = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -38,10 +39,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.btnChangeCourse = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnBatchesSummary = new System.Windows.Forms.Button();
             this.btnInPlantSummary = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,13 +56,27 @@
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.btnChangeCourse);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnBatchesSummary);
             this.panel1.Controls.Add(this.btnInPlantSummary);
             this.panel1.Controls.Add(this.btnSelect);
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(449, 364);
+            this.panel1.Size = new System.Drawing.Size(449, 314);
             this.panel1.TabIndex = 0;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.BackColor = System.Drawing.Color.DarkGreen;
+            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(4, 4);
+            this.label16.Margin = new System.Windows.Forms.Padding(0);
+            this.label16.Name = "label16";
+            this.label16.Padding = new System.Windows.Forms.Padding(5);
+            this.label16.Size = new System.Drawing.Size(441, 32);
+            this.label16.TabIndex = 106;
+            this.label16.Text = "EXPORT TO EXCEL";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbxBatch
             // 
@@ -71,7 +84,7 @@
             this.cbxBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBatch.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxBatch.FormattingEnabled = true;
-            this.cbxBatch.Location = new System.Drawing.Point(75, 154);
+            this.cbxBatch.Location = new System.Drawing.Point(93, 157);
             this.cbxBatch.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.cbxBatch.Name = "cbxBatch";
             this.cbxBatch.Size = new System.Drawing.Size(99, 25);
@@ -83,7 +96,7 @@
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(12, 158);
+            this.label20.Location = new System.Drawing.Point(33, 161);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(57, 16);
@@ -96,19 +109,20 @@
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 95);
+            this.label19.Location = new System.Drawing.Point(2, 125);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 16);
             this.label19.TabIndex = 101;
             this.label19.Text = "Program Title:";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // txtCopr
             // 
             this.txtCopr.BackColor = System.Drawing.Color.White;
             this.txtCopr.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCopr.Location = new System.Drawing.Point(12, 65);
+            this.txtCopr.Location = new System.Drawing.Point(93, 85);
             this.txtCopr.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.txtCopr.Name = "txtCopr";
             this.txtCopr.ReadOnly = true;
@@ -119,19 +133,20 @@
             // 
             this.txtProgramTitle.BackColor = System.Drawing.Color.White;
             this.txtProgramTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProgramTitle.Location = new System.Drawing.Point(12, 117);
+            this.txtProgramTitle.Location = new System.Drawing.Point(93, 121);
             this.txtProgramTitle.Margin = new System.Windows.Forms.Padding(0, 6, 0, 5);
             this.txtProgramTitle.Name = "txtProgramTitle";
             this.txtProgramTitle.ReadOnly = true;
-            this.txtProgramTitle.Size = new System.Drawing.Size(372, 25);
+            this.txtProgramTitle.Size = new System.Drawing.Size(341, 25);
             this.txtProgramTitle.TabIndex = 102;
+            this.txtProgramTitle.TextChanged += new System.EventHandler(this.txtProgramTitle_TextChanged);
             // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(12, 44);
+            this.label18.Location = new System.Drawing.Point(37, 89);
             this.label18.Margin = new System.Windows.Forms.Padding(0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(56, 16);
@@ -149,7 +164,7 @@
             this.btnChangeCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeCourse.Image = ((System.Drawing.Image)(resources.GetObject("btnChangeCourse.Image")));
-            this.btnChangeCourse.Location = new System.Drawing.Point(194, 65);
+            this.btnChangeCourse.Location = new System.Drawing.Point(93, 52);
             this.btnChangeCourse.Margin = new System.Windows.Forms.Padding(0, 5, 3, 3);
             this.btnChangeCourse.Name = "btnChangeCourse";
             this.btnChangeCourse.Size = new System.Drawing.Size(77, 25);
@@ -171,7 +186,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(7, 301);
+            this.btnClose.Location = new System.Drawing.Point(5, 251);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(63, 58);
@@ -180,6 +195,28 @@
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnInPlantSummary
+            // 
+            this.btnInPlantSummary.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnInPlantSummary.AutoSize = true;
+            this.btnInPlantSummary.BackColor = System.Drawing.Color.Silver;
+            this.btnInPlantSummary.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnInPlantSummary.FlatAppearance.BorderSize = 2;
+            this.btnInPlantSummary.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnInPlantSummary.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnInPlantSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInPlantSummary.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInPlantSummary.Image = ((System.Drawing.Image)(resources.GetObject("btnInPlantSummary.Image")));
+            this.btnInPlantSummary.Location = new System.Drawing.Point(285, 247);
+            this.btnInPlantSummary.Margin = new System.Windows.Forms.Padding(5);
+            this.btnInPlantSummary.Name = "btnInPlantSummary";
+            this.btnInPlantSummary.Size = new System.Drawing.Size(159, 40);
+            this.btnInPlantSummary.TabIndex = 37;
+            this.btnInPlantSummary.Text = "InPlantSummary";
+            this.btnInPlantSummary.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInPlantSummary.UseVisualStyleBackColor = false;
+            this.btnInPlantSummary.Click += new System.EventHandler(this.btnInPlantSummary_Click);
             // 
             // btnSelect
             // 
@@ -194,81 +231,23 @@
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.Image")));
-            this.btnSelect.Location = new System.Drawing.Point(12, 200);
+            this.btnSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSelect.Location = new System.Drawing.Point(268, 197);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(5);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(102, 59);
+            this.btnSelect.Size = new System.Drawing.Size(176, 40);
             this.btnSelect.TabIndex = 37;
             this.btnSelect.Text = "EXCEL (MIS)";
-            this.btnSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.BackColor = System.Drawing.Color.DarkGreen;
-            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(3, 3);
-            this.label16.Margin = new System.Windows.Forms.Padding(0);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(5);
-            this.label16.Size = new System.Drawing.Size(441, 32);
-            this.label16.TabIndex = 106;
-            this.label16.Text = "COURSE INFORMATION";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnBatchesSummary
-            // 
-            this.btnBatchesSummary.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnBatchesSummary.AutoSize = true;
-            this.btnBatchesSummary.BackColor = System.Drawing.Color.Silver;
-            this.btnBatchesSummary.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnBatchesSummary.FlatAppearance.BorderSize = 2;
-            this.btnBatchesSummary.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnBatchesSummary.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnBatchesSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBatchesSummary.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBatchesSummary.Image = ((System.Drawing.Image)(resources.GetObject("btnBatchesSummary.Image")));
-            this.btnBatchesSummary.Location = new System.Drawing.Point(129, 200);
-            this.btnBatchesSummary.Margin = new System.Windows.Forms.Padding(5);
-            this.btnBatchesSummary.Name = "btnBatchesSummary";
-            this.btnBatchesSummary.Size = new System.Drawing.Size(176, 59);
-            this.btnBatchesSummary.TabIndex = 37;
-            this.btnBatchesSummary.Text = "SUMMARY OF BATCHES";
-            this.btnBatchesSummary.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBatchesSummary.UseVisualStyleBackColor = false;
-            this.btnBatchesSummary.Click += new System.EventHandler(this.btnBatchesSummary_Click);
-            // 
-            // btnInPlantSummary
-            // 
-            this.btnInPlantSummary.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnInPlantSummary.AutoSize = true;
-            this.btnInPlantSummary.BackColor = System.Drawing.Color.Silver;
-            this.btnInPlantSummary.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnInPlantSummary.FlatAppearance.BorderSize = 2;
-            this.btnInPlantSummary.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnInPlantSummary.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnInPlantSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInPlantSummary.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInPlantSummary.Image = ((System.Drawing.Image)(resources.GetObject("btnInPlantSummary.Image")));
-            this.btnInPlantSummary.Location = new System.Drawing.Point(315, 200);
-            this.btnInPlantSummary.Margin = new System.Windows.Forms.Padding(5);
-            this.btnInPlantSummary.Name = "btnInPlantSummary";
-            this.btnInPlantSummary.Size = new System.Drawing.Size(129, 59);
-            this.btnInPlantSummary.TabIndex = 37;
-            this.btnInPlantSummary.Text = "InPlantSummary";
-            this.btnInPlantSummary.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnInPlantSummary.UseVisualStyleBackColor = false;
-            this.btnInPlantSummary.Click += new System.EventHandler(this.btnInPlantSummary_Click);
             // 
             // ExportToExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(459, 374);
+            this.ClientSize = new System.Drawing.Size(459, 324);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -301,7 +280,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnChangeCourse;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button btnBatchesSummary;
         private System.Windows.Forms.Button btnInPlantSummary;
     }
 }

@@ -17,6 +17,7 @@ namespace GN.TTC.Students.Models
             Education = "";
             Nationality = "Filipino";
             Classification = "Regular";
+            Guardian = "";
         }
 
         internal int ID;
@@ -28,6 +29,7 @@ namespace GN.TTC.Students.Models
         internal string Education;
         internal string Nationality;
         internal string Classification;
+        internal string Guardian;
 
         internal static Profile getByStudent(int StudentID)
         {
@@ -54,6 +56,7 @@ namespace GN.TTC.Students.Models
                             profile.Education = rdr.GetString(6);
                             profile.Nationality = rdr.GetString(7);
                             profile.Classification = rdr.GetString(8);
+                            profile.Guardian = rdr.GetString(9);
                         }
                     }
                 }
@@ -75,12 +78,12 @@ namespace GN.TTC.Students.Models
                     cmd.Connection = con;
                     if (ID > 0)
                     {
-                        cmd.CommandText = "UPDATE profiles SET gender = @gender, birthdate = @birthdate, birthplace = @birthplace, civil_status = @civil_status, education = @education, nationality = @nationality, classification = @classification WHERE id = @id";
+                        cmd.CommandText = "UPDATE profiles SET gender = @gender, birthdate = @birthdate, birthplace = @birthplace, civil_status = @civil_status, education = @education, nationality = @nationality, classification = @classification, guardian = @guardian WHERE id = @id";
                         cmd.Parameters.AddWithValue("id", ID);
                     }
                     else
                     {
-                        cmd.CommandText = "INSERT INTO profiles (student_id, gender, birthdate, birthplace, civil_status, education, nationality, classification) VALUES (@student_id, @gender,  @birthdate, @birthplace, @civil_status, @education, @nationality, @classification)";
+                        cmd.CommandText = "INSERT INTO profiles (student_id, gender, birthdate, birthplace, civil_status, education, nationality, classification, guardian) VALUES (@student_id, @gender,  @birthdate, @birthplace, @civil_status, @education, @nationality, @classification, @guardian)";
                         cmd.Parameters.AddWithValue("student_id", StudentID);
                     }
                     cmd.Parameters.AddWithValue("gender", Gender);
@@ -90,6 +93,7 @@ namespace GN.TTC.Students.Models
                     cmd.Parameters.AddWithValue("education", Education);
                     cmd.Parameters.AddWithValue("nationality", Nationality);
                     cmd.Parameters.AddWithValue("classification", Classification);
+                    cmd.Parameters.AddWithValue("guardian", Guardian);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     if (ID == 0) ID = Convert.ToInt32(cmd.LastInsertedId);

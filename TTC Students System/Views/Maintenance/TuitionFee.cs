@@ -17,16 +17,17 @@ namespace GN.TTC.Students.Views.Maintenance
 
         private Models.Program program;
         List<Models.Program> programs = new List<Models.Program>();
-        Models.Fee fee = new Models.Fee();
-        private Bitmap img;
+        private Bitmap image;
 
         private void loadPrograms()
         {
             programs = Models.Program.getAll();
             dgvProgramFees.Rows.Clear();
+            int c = 1;
             foreach(Models.Program program in programs)
             {
-                dgvProgramFees.Rows.Add(program.ID, program.Title, program.GetFullTuition());
+                dgvProgramFees.Rows.Add(program.ID, c, program.Copr, program.Title, program.Tuition);
+                c++;
             }
             dgvProgramFees.ClearSelection();
         }
@@ -39,17 +40,23 @@ namespace GN.TTC.Students.Views.Maintenance
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            fee.Assessment = nudAssessment.Value;
-            fee.ID_Card = nudID.Value;
-            fee.Insurance = nudInsurance.Value;
-            fee.TShirt = nudTShirt.Value;
-            fee.Special = nudSpecialOrder.Value;
-            fee.Save();
+            program.Tuition = nudTuition.Value;
+            program.DownPayment = nudDownPayment.Value;
+            program.FirstPayment = nud1stPayment.Value;
+            program.SecondPayment = nud2ndPayment.Value;
+            program.ThirdPayment = nud3rdPayment.Value;
+            program.FourthPayment = nud4thPayment.Value;
+            program.Save();
             loadPrograms();
         }
 
         private void TuitionFee_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn col in dgvProgramFees.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            cbxCopies.SelectedIndex = 0;
             loadPrograms();
         }
 
@@ -59,46 +66,102 @@ namespace GN.TTC.Students.Views.Maintenance
             {
                 int id = Convert.ToInt32(dgvProgramFees.SelectedRows[0].Cells[0].Value);
                 program = programs.Find(p => p.ID == id);
-                fee = Models.Fee.getByProgram(id);
             }
             else
             {
                 program = new Models.Program();
-                fee = new Models.Fee();
             }
             txtCopr.Text = program.Copr;
             txtProgramTitle.Text = program.Title;
-            nudTuitionFee.Value = program.Tuition;
-            nudMiscellaneous.Value = fee.Assessment + fee.ID_Card + fee.Insurance + fee.TShirt + fee.Special;
-            nudAssessment.Value = fee.Assessment;
-            nudID.Value = fee.ID_Card;
-            nudInsurance.Value = fee.Insurance;
-            nudTShirt.Value = fee.TShirt;
-            nudSpecialOrder.Value = fee.Special;
-            nudTotal.Value = nudTuitionFee.Value + nudMiscellaneous.Value;
+            nudTuition.Value = program.Tuition;
+            nudDownPayment.Value = program.DownPayment;
+            nud1stPayment.Value = program.FirstPayment;
+            nud2ndPayment.Value = program.SecondPayment;
+            nud3rdPayment.Value = program.ThirdPayment;
+            nud4thPayment.Value = program.FourthPayment;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            dgvProgramFees.ClearSelection();
-            int height = dgvProgramFees.Height;
-            dgvProgramFees.Height = dgvProgramFees.RowCount * dgvProgramFees.RowTemplate.Height + dgvProgramFees.Columns[0].HeaderCell.Size.Height;
-            dgvProgramFees.ScrollBars = ScrollBars.None;
-            img = new Bitmap(dgvProgramFees.Width, dgvProgramFees.Height);
-            dgvProgramFees.DrawToBitmap(img, new Rectangle(0, 0, dgvProgramFees.Width, dgvProgramFees.Height));
-            dgvProgramFees.Height = height;
-            dgvProgramFees.ScrollBars = ScrollBars.Vertical;
+            program.Tuition = nudTuition.Value;
+            program.DownPayment = nudDownPayment.Value;
+            program.FirstPayment = nud1stPayment.Value;
+            program.SecondPayment = nud2ndPayment.Value;
+            program.ThirdPayment = nud3rdPayment.Value;
+            program.FourthPayment = nud4thPayment.Value;
+            program.Save();
+            images.Clear();
+            int copies = Convert.ToInt32(cbxCopies.SelectedItem);
+            for (int i = 0; i < copies; i++)
+            {
+                Print.TuitionBreakdown breakdown = new Print.TuitionBreakdown();
+                breakdown.lblProgramTitle.Text = program.Title;
+                breakdown.lblDownpayment.Text = program.DownPayment.ToString("N");
+                breakdown.lbl1stPayment.Text = program.FirstPayment.ToString("N");
+                breakdown.lbl2ndPayment.Text = program.SecondPayment.ToString("N");
+                breakdown.lbl3rdPayment.Text = program.ThirdPayment.ToString("N");
+                breakdown.lbl4thPayment.Text = program.FourthPayment.ToString("N");
+                breakdown.lblTotalTuition.Text = program.Tuition.ToString("N");
+                breakdown.Show();
+                image = new Bitmap(breakdown.Width, breakdown.Height);
+                breakdown.DrawToBitmap(image, new Rectangle(0, 0, breakdown.Width, breakdown.Height));
+                breakdown.Close();
+                images.Add(image);
+            }
+            psPrint = true;
             printDocument.DefaultPageSettings.Landscape = true;
             printPreviewDialog.ShowDialog();
         }
 
+        List<Bitmap> images = new List<Bitmap>();
+        bool psPrint = false;
+        int psIndex = 0;
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.InterpolationMode = InterpolationMode.Bicubic;
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
-            e.Graphics.DrawImage(img, e.PageBounds.Width / 2 - img.Width / 2, 50);
+            if (psPrint)
+            {
+                if (psIndex < images.Count)
+                {
+                    Bitmap bitmap = new Bitmap(images[0].Width * 3, images[0].Height);
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (psIndex == images.Count) break;
+                        Graphics g = Graphics.FromImage(bitmap);
+                        g.DrawImage(images[psIndex], i * images[0].Width, 0);
+                        psIndex++;
+                    }
+                    e.Graphics.DrawImage(bitmap, 30, 50);
+                    if (psIndex == images.Count)
+                    {
+                        e.HasMorePages = false;
+                        psIndex = 0;
+                    }
+                    else
+                    {
+                        e.HasMorePages = true;
+                    }
+                }
+            }
+            else
+            {
+                e.Graphics.DrawImage(image, 30, 50);
+            }
+        }
+
+        private void nudTuition_ValueChanged(object sender, EventArgs e)
+        {
+            nudDownPayment.Value = nudTuition.Value - (nudTuition.Value * 0.65m);
+        }
+
+        private void nudDownPayment_ValueChanged(object sender, EventArgs e)
+        {
+            nud1stPayment.Value = (nudTuition.Value - nudDownPayment.Value) / 4;
+            nud4thPayment.Value = nud3rdPayment.Value = nud2ndPayment.Value = nud1stPayment.Value;
         }
     }
 }

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Documents));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtCopr = new System.Windows.Forms.TextBox();
             this.txtProgramTitle = new System.Windows.Forms.TextBox();
@@ -40,7 +42,17 @@
             this.label20 = new System.Windows.Forms.Label();
             this.rbtnIncomplete = new System.Windows.Forms.RadioButton();
             this.dgvChecklist = new System.Windows.Forms.DataGridView();
+            this.rbtnALL = new System.Windows.Forms.RadioButton();
+            this.rbtnComplete = new System.Windows.Forms.RadioButton();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgcStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgc137 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgc138 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -51,15 +63,6 @@
             this.dgcClearance = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgcEnvelope = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgcRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rbtnALL = new System.Windows.Forms.RadioButton();
-            this.rbtnComplete = new System.Windows.Forms.RadioButton();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChecklist)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +70,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.txtCopr);
             this.panel1.Controls.Add(this.txtProgramTitle);
@@ -89,12 +94,38 @@
             this.panel1.Size = new System.Drawing.Size(812, 612);
             this.panel1.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 16);
+            this.label2.TabIndex = 77;
+            this.label2.Text = "Program CoPR:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(700, 70);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 77;
+            this.label3.Text = "Batch:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label19
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(-5, 70);
+            this.label19.Location = new System.Drawing.Point(173, 70);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 16);
@@ -202,6 +233,7 @@
             this.dgvChecklist.AllowUserToDeleteRows = false;
             this.dgvChecklist.AllowUserToResizeColumns = false;
             this.dgvChecklist.AllowUserToResizeRows = false;
+            this.dgvChecklist.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -213,6 +245,7 @@
             this.dgvChecklist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChecklist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column2,
             this.dgcStudentName,
             this.dgc137,
             this.dgc138,
@@ -231,84 +264,6 @@
             this.dgvChecklist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvChecklist.Size = new System.Drawing.Size(800, 374);
             this.dgvChecklist.TabIndex = 7;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // dgcStudentName
-            // 
-            this.dgcStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcStudentName.FillWeight = 75F;
-            this.dgcStudentName.HeaderText = "Student Name";
-            this.dgcStudentName.Name = "dgcStudentName";
-            this.dgcStudentName.ReadOnly = true;
-            // 
-            // dgc137
-            // 
-            this.dgc137.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgc137.FillWeight = 18F;
-            this.dgc137.HeaderText = "137 A";
-            this.dgc137.Name = "dgc137";
-            // 
-            // dgc138
-            // 
-            this.dgc138.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgc138.FillWeight = 15F;
-            this.dgc138.HeaderText = "138";
-            this.dgc138.Name = "dgc138";
-            // 
-            // dgcGoodMoral
-            // 
-            this.dgcGoodMoral.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcGoodMoral.FillWeight = 15F;
-            this.dgcGoodMoral.HeaderText = "Good Moral";
-            this.dgcGoodMoral.Name = "dgcGoodMoral";
-            // 
-            // dgcBirthCert
-            // 
-            this.dgcBirthCert.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcBirthCert.FillWeight = 15F;
-            this.dgcBirthCert.HeaderText = "Birth Cert";
-            this.dgcBirthCert.Name = "dgcBirthCert";
-            // 
-            // dgcPictures
-            // 
-            this.dgcPictures.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcPictures.FillWeight = 20F;
-            this.dgcPictures.HeaderText = "Pictures";
-            this.dgcPictures.Name = "dgcPictures";
-            // 
-            // dgcDiploma
-            // 
-            this.dgcDiploma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcDiploma.FillWeight = 20F;
-            this.dgcDiploma.HeaderText = "Diploma";
-            this.dgcDiploma.Name = "dgcDiploma";
-            // 
-            // dgcClearance
-            // 
-            this.dgcClearance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcClearance.FillWeight = 25F;
-            this.dgcClearance.HeaderText = "Clearance";
-            this.dgcClearance.Name = "dgcClearance";
-            // 
-            // dgcEnvelope
-            // 
-            this.dgcEnvelope.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcEnvelope.FillWeight = 22F;
-            this.dgcEnvelope.HeaderText = "Envelope";
-            this.dgcEnvelope.Name = "dgcEnvelope";
-            // 
-            // dgcRemarks
-            // 
-            this.dgcRemarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgcRemarks.FillWeight = 50F;
-            this.dgcRemarks.HeaderText = "Remarks";
-            this.dgcRemarks.Name = "dgcRemarks";
             // 
             // rbtnALL
             // 
@@ -434,6 +389,91 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "#";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 39;
+            // 
+            // dgcStudentName
+            // 
+            this.dgcStudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcStudentName.FillWeight = 75F;
+            this.dgcStudentName.HeaderText = "Student Name";
+            this.dgcStudentName.Name = "dgcStudentName";
+            this.dgcStudentName.ReadOnly = true;
+            // 
+            // dgc137
+            // 
+            this.dgc137.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgc137.FillWeight = 18F;
+            this.dgc137.HeaderText = "137 A";
+            this.dgc137.Name = "dgc137";
+            // 
+            // dgc138
+            // 
+            this.dgc138.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgc138.FillWeight = 15F;
+            this.dgc138.HeaderText = "138";
+            this.dgc138.Name = "dgc138";
+            // 
+            // dgcGoodMoral
+            // 
+            this.dgcGoodMoral.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcGoodMoral.FillWeight = 15F;
+            this.dgcGoodMoral.HeaderText = "Good Moral";
+            this.dgcGoodMoral.Name = "dgcGoodMoral";
+            // 
+            // dgcBirthCert
+            // 
+            this.dgcBirthCert.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcBirthCert.FillWeight = 15F;
+            this.dgcBirthCert.HeaderText = "Birth Cert";
+            this.dgcBirthCert.Name = "dgcBirthCert";
+            // 
+            // dgcPictures
+            // 
+            this.dgcPictures.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcPictures.FillWeight = 20F;
+            this.dgcPictures.HeaderText = "Pictures";
+            this.dgcPictures.Name = "dgcPictures";
+            // 
+            // dgcDiploma
+            // 
+            this.dgcDiploma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcDiploma.FillWeight = 20F;
+            this.dgcDiploma.HeaderText = "Diploma";
+            this.dgcDiploma.Name = "dgcDiploma";
+            // 
+            // dgcClearance
+            // 
+            this.dgcClearance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcClearance.FillWeight = 25F;
+            this.dgcClearance.HeaderText = "Clearance";
+            this.dgcClearance.Name = "dgcClearance";
+            // 
+            // dgcEnvelope
+            // 
+            this.dgcEnvelope.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcEnvelope.FillWeight = 22F;
+            this.dgcEnvelope.HeaderText = "Envelope";
+            this.dgcEnvelope.Name = "dgcEnvelope";
+            // 
+            // dgcRemarks
+            // 
+            this.dgcRemarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcRemarks.FillWeight = 50F;
+            this.dgcRemarks.HeaderText = "Remarks";
+            this.dgcRemarks.Name = "dgcRemarks";
+            // 
             // Documents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +486,7 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Documents";
+            this.Load += new System.EventHandler(this.Documents_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChecklist)).EndInit();
@@ -472,7 +513,12 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.RadioButton rbtnALL;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcStudentName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgc137;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgc138;
@@ -483,7 +529,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgcClearance;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgcEnvelope;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgcRemarks;
-        private System.Drawing.Printing.PrintDocument printDocument;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
     }
 }

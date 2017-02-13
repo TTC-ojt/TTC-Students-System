@@ -103,9 +103,9 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
             this.tableLayoutPanel5.Controls.Add(this.button5, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnAddSubjectsToTeachers, 5, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnSubjects, 4, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnTuitionFee, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnAddSubjectsToTeachers, 4, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnSubjects, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnTuitionFee, 5, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnProgramProfile, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnProvidersProfile, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -115,6 +115,7 @@
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel5, 2);
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(980, 149);
             this.tableLayoutPanel5.TabIndex = 12;
             // 
@@ -152,10 +153,10 @@
             this.btnAddSubjectsToTeachers.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSubjectsToTeachers.ForeColor = System.Drawing.Color.Black;
             this.btnAddSubjectsToTeachers.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSubjectsToTeachers.Image")));
-            this.btnAddSubjectsToTeachers.Location = new System.Drawing.Point(830, 10);
+            this.btnAddSubjectsToTeachers.Location = new System.Drawing.Point(674, 10);
             this.btnAddSubjectsToTeachers.Margin = new System.Windows.Forms.Padding(10);
             this.btnAddSubjectsToTeachers.Name = "btnAddSubjectsToTeachers";
-            this.btnAddSubjectsToTeachers.Size = new System.Drawing.Size(140, 129);
+            this.btnAddSubjectsToTeachers.Size = new System.Drawing.Size(136, 129);
             this.btnAddSubjectsToTeachers.TabIndex = 8;
             this.btnAddSubjectsToTeachers.Text = "TEACHERS";
             this.btnAddSubjectsToTeachers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -174,7 +175,7 @@
             this.btnSubjects.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubjects.ForeColor = System.Drawing.Color.Black;
             this.btnSubjects.Image = ((System.Drawing.Image)(resources.GetObject("btnSubjects.Image")));
-            this.btnSubjects.Location = new System.Drawing.Point(674, 10);
+            this.btnSubjects.Location = new System.Drawing.Point(518, 10);
             this.btnSubjects.Margin = new System.Windows.Forms.Padding(10);
             this.btnSubjects.Name = "btnSubjects";
             this.btnSubjects.Size = new System.Drawing.Size(136, 129);
@@ -196,10 +197,10 @@
             this.btnTuitionFee.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTuitionFee.ForeColor = System.Drawing.Color.Black;
             this.btnTuitionFee.Image = ((System.Drawing.Image)(resources.GetObject("btnTuitionFee.Image")));
-            this.btnTuitionFee.Location = new System.Drawing.Point(518, 10);
+            this.btnTuitionFee.Location = new System.Drawing.Point(830, 10);
             this.btnTuitionFee.Margin = new System.Windows.Forms.Padding(10);
             this.btnTuitionFee.Name = "btnTuitionFee";
-            this.btnTuitionFee.Size = new System.Drawing.Size(136, 129);
+            this.btnTuitionFee.Size = new System.Drawing.Size(140, 129);
             this.btnTuitionFee.TabIndex = 8;
             this.btnTuitionFee.Text = "TUITION";
             this.btnTuitionFee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -451,7 +452,7 @@
             this.btnDTR.Name = "btnDTR";
             this.btnDTR.Size = new System.Drawing.Size(136, 127);
             this.btnDTR.TabIndex = 12;
-            this.btnDTR.Text = "DAILY TMIME RECORD";
+            this.btnDTR.Text = "DAILY TIME RECORD";
             this.btnDTR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDTR.UseVisualStyleBackColor = false;
             this.btnDTR.Click += new System.EventHandler(this.btnDTR_Click);

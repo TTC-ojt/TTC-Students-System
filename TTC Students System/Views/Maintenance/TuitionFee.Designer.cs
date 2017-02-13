@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TuitionFee));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbxCopies = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.txtCopr = new System.Windows.Forms.TextBox();
@@ -38,45 +39,42 @@
             this.label18 = new System.Windows.Forms.Label();
             this.dgvProgramFees = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.nudDownPayment = new System.Windows.Forms.NumericUpDown();
+            this.nud1stPayment = new System.Windows.Forms.NumericUpDown();
+            this.nud2ndPayment = new System.Windows.Forms.NumericUpDown();
+            this.nud3rdPayment = new System.Windows.Forms.NumericUpDown();
+            this.nud4thPayment = new System.Windows.Forms.NumericUpDown();
+            this.nudTuition = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.nudTuitionFee = new System.Windows.Forms.NumericUpDown();
-            this.nudAssessment = new System.Windows.Forms.NumericUpDown();
-            this.nudID = new System.Windows.Forms.NumericUpDown();
-            this.nudInsurance = new System.Windows.Forms.NumericUpDown();
-            this.nudTShirt = new System.Windows.Forms.NumericUpDown();
-            this.nudSpecialOrder = new System.Windows.Forms.NumericUpDown();
-            this.nudTotal = new System.Windows.Forms.NumericUpDown();
-            this.nudMiscellaneous = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProgramFees)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTuitionFee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAssessment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsurance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTShirt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSpecialOrder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMiscellaneous)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDownPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud1stPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud2ndPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud3rdPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud4thPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTuition)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.cbxCopies);
             this.panel1.Controls.Add(this.btnPrint);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.txtCopr);
@@ -86,28 +84,45 @@
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.nudDownPayment);
+            this.panel1.Controls.Add(this.nud1stPayment);
+            this.panel1.Controls.Add(this.nud2ndPayment);
+            this.panel1.Controls.Add(this.nud3rdPayment);
+            this.panel1.Controls.Add(this.nud4thPayment);
+            this.panel1.Controls.Add(this.nudTuition);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.nudTuitionFee);
-            this.panel1.Controls.Add(this.nudAssessment);
-            this.panel1.Controls.Add(this.nudID);
-            this.panel1.Controls.Add(this.nudInsurance);
-            this.panel1.Controls.Add(this.nudTShirt);
-            this.panel1.Controls.Add(this.nudSpecialOrder);
-            this.panel1.Controls.Add(this.nudTotal);
-            this.panel1.Controls.Add(this.nudMiscellaneous);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(696, 590);
             this.panel1.TabIndex = 0;
+            // 
+            // cbxCopies
+            // 
+            this.cbxCopies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCopies.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.cbxCopies.FormattingEnabled = true;
+            this.cbxCopies.Items.AddRange(new object[] {
+            "3",
+            "6",
+            "9",
+            "12",
+            "15",
+            "18",
+            "21",
+            "24",
+            "27",
+            "30"});
+            this.cbxCopies.Location = new System.Drawing.Point(620, 390);
+            this.cbxCopies.Name = "cbxCopies";
+            this.cbxCopies.Size = new System.Drawing.Size(67, 24);
+            this.cbxCopies.TabIndex = 81;
             // 
             // btnPrint
             // 
@@ -117,7 +132,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(553, 529);
+            this.btnPrint.Location = new System.Drawing.Point(620, 420);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(67, 57);
             this.btnPrint.TabIndex = 8;
@@ -180,17 +195,19 @@
             this.dgvProgramFees.AllowUserToDeleteRows = false;
             this.dgvProgramFees.AllowUserToResizeColumns = false;
             this.dgvProgramFees.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProgramFees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProgramFees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProgramFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProgramFees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.Column1,
+            this.Column2,
             this.courseName,
             this.totalFee});
             this.dgvProgramFees.Location = new System.Drawing.Point(5, 49);
@@ -210,6 +227,22 @@
             this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 5F;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.FillWeight = 20F;
+            this.Column2.HeaderText = "COPR";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // courseName
             // 
             this.courseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -221,8 +254,8 @@
             // totalFee
             // 
             this.totalFee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.totalFee.FillWeight = 20F;
-            this.totalFee.HeaderText = "TOTAL FEE";
+            this.totalFee.FillWeight = 15F;
+            this.totalFee.HeaderText = "TUITION FEE";
             this.totalFee.Name = "totalFee";
             this.totalFee.ReadOnly = true;
             // 
@@ -273,229 +306,178 @@
             this.label5.Text = "SCHOOL FEES";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // nudDownPayment
+            // 
+            this.nudDownPayment.BackColor = System.Drawing.Color.White;
+            this.nudDownPayment.DecimalPlaces = 2;
+            this.nudDownPayment.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDownPayment.Location = new System.Drawing.Point(389, 327);
+            this.nudDownPayment.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nudDownPayment.Name = "nudDownPayment";
+            this.nudDownPayment.Size = new System.Drawing.Size(136, 23);
+            this.nudDownPayment.TabIndex = 2;
+            this.nudDownPayment.ValueChanged += new System.EventHandler(this.nudDownPayment_ValueChanged);
+            // 
+            // nud1stPayment
+            // 
+            this.nud1stPayment.BackColor = System.Drawing.Color.White;
+            this.nud1stPayment.DecimalPlaces = 2;
+            this.nud1stPayment.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud1stPayment.Location = new System.Drawing.Point(389, 370);
+            this.nud1stPayment.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nud1stPayment.Name = "nud1stPayment";
+            this.nud1stPayment.ReadOnly = true;
+            this.nud1stPayment.Size = new System.Drawing.Size(136, 23);
+            this.nud1stPayment.TabIndex = 3;
+            // 
+            // nud2ndPayment
+            // 
+            this.nud2ndPayment.BackColor = System.Drawing.Color.White;
+            this.nud2ndPayment.DecimalPlaces = 2;
+            this.nud2ndPayment.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud2ndPayment.Location = new System.Drawing.Point(389, 399);
+            this.nud2ndPayment.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nud2ndPayment.Name = "nud2ndPayment";
+            this.nud2ndPayment.ReadOnly = true;
+            this.nud2ndPayment.Size = new System.Drawing.Size(136, 23);
+            this.nud2ndPayment.TabIndex = 4;
+            // 
+            // nud3rdPayment
+            // 
+            this.nud3rdPayment.BackColor = System.Drawing.Color.White;
+            this.nud3rdPayment.DecimalPlaces = 2;
+            this.nud3rdPayment.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud3rdPayment.Location = new System.Drawing.Point(389, 428);
+            this.nud3rdPayment.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nud3rdPayment.Name = "nud3rdPayment";
+            this.nud3rdPayment.ReadOnly = true;
+            this.nud3rdPayment.Size = new System.Drawing.Size(136, 23);
+            this.nud3rdPayment.TabIndex = 5;
+            // 
+            // nud4thPayment
+            // 
+            this.nud4thPayment.BackColor = System.Drawing.Color.White;
+            this.nud4thPayment.DecimalPlaces = 2;
+            this.nud4thPayment.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud4thPayment.Location = new System.Drawing.Point(389, 457);
+            this.nud4thPayment.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nud4thPayment.Name = "nud4thPayment";
+            this.nud4thPayment.ReadOnly = true;
+            this.nud4thPayment.Size = new System.Drawing.Size(136, 23);
+            this.nud4thPayment.TabIndex = 6;
+            // 
+            // nudTuition
+            // 
+            this.nudTuition.BackColor = System.Drawing.Color.White;
+            this.nudTuition.DecimalPlaces = 2;
+            this.nudTuition.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudTuition.Location = new System.Drawing.Point(27, 375);
+            this.nudTuition.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.nudTuition.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nudTuition.Name = "nudTuition";
+            this.nudTuition.Size = new System.Drawing.Size(191, 32);
+            this.nudTuition.TabIndex = 39;
+            this.nudTuition.ValueChanged += new System.EventHandler(this.nudTuition_ValueChanged);
+            this.nudTuition.Leave += new System.EventHandler(this.nudTuition_ValueChanged);
+            // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.LimeGreen;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(449, 315);
-            this.label2.Margin = new System.Windows.Forms.Padding(5);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(620, 371);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
-            this.label2.TabIndex = 40;
+            this.label2.Size = new System.Drawing.Size(67, 16);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "COPIES:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // nudTuitionFee
-            // 
-            this.nudTuitionFee.BackColor = System.Drawing.Color.White;
-            this.nudTuitionFee.DecimalPlaces = 2;
-            this.nudTuitionFee.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudTuitionFee.Location = new System.Drawing.Point(115, 315);
-            this.nudTuitionFee.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.nudTuitionFee.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudTuitionFee.Name = "nudTuitionFee";
-            this.nudTuitionFee.ReadOnly = true;
-            this.nudTuitionFee.Size = new System.Drawing.Size(191, 26);
-            this.nudTuitionFee.TabIndex = 1;
-            // 
-            // nudAssessment
-            // 
-            this.nudAssessment.BackColor = System.Drawing.Color.White;
-            this.nudAssessment.DecimalPlaces = 2;
-            this.nudAssessment.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudAssessment.Location = new System.Drawing.Point(459, 347);
-            this.nudAssessment.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudAssessment.Name = "nudAssessment";
-            this.nudAssessment.Size = new System.Drawing.Size(136, 23);
-            this.nudAssessment.TabIndex = 2;
-            // 
-            // nudID
-            // 
-            this.nudID.BackColor = System.Drawing.Color.White;
-            this.nudID.DecimalPlaces = 2;
-            this.nudID.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudID.Location = new System.Drawing.Point(459, 377);
-            this.nudID.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudID.Name = "nudID";
-            this.nudID.Size = new System.Drawing.Size(136, 23);
-            this.nudID.TabIndex = 3;
-            // 
-            // nudInsurance
-            // 
-            this.nudInsurance.BackColor = System.Drawing.Color.White;
-            this.nudInsurance.DecimalPlaces = 2;
-            this.nudInsurance.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudInsurance.Location = new System.Drawing.Point(459, 407);
-            this.nudInsurance.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudInsurance.Name = "nudInsurance";
-            this.nudInsurance.Size = new System.Drawing.Size(136, 23);
-            this.nudInsurance.TabIndex = 4;
-            // 
-            // nudTShirt
-            // 
-            this.nudTShirt.BackColor = System.Drawing.Color.White;
-            this.nudTShirt.DecimalPlaces = 2;
-            this.nudTShirt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudTShirt.Location = new System.Drawing.Point(459, 437);
-            this.nudTShirt.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudTShirt.Name = "nudTShirt";
-            this.nudTShirt.Size = new System.Drawing.Size(136, 23);
-            this.nudTShirt.TabIndex = 5;
-            // 
-            // nudSpecialOrder
-            // 
-            this.nudSpecialOrder.BackColor = System.Drawing.Color.White;
-            this.nudSpecialOrder.DecimalPlaces = 2;
-            this.nudSpecialOrder.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSpecialOrder.Location = new System.Drawing.Point(459, 467);
-            this.nudSpecialOrder.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudSpecialOrder.Name = "nudSpecialOrder";
-            this.nudSpecialOrder.Size = new System.Drawing.Size(136, 23);
-            this.nudSpecialOrder.TabIndex = 6;
-            // 
-            // nudTotal
-            // 
-            this.nudTotal.BackColor = System.Drawing.Color.White;
-            this.nudTotal.DecimalPlaces = 2;
-            this.nudTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudTotal.Location = new System.Drawing.Point(115, 480);
-            this.nudTotal.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
-            this.nudTotal.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudTotal.Name = "nudTotal";
-            this.nudTotal.ReadOnly = true;
-            this.nudTotal.Size = new System.Drawing.Size(191, 32);
-            this.nudTotal.TabIndex = 39;
-            // 
-            // nudMiscellaneous
-            // 
-            this.nudMiscellaneous.BackColor = System.Drawing.Color.White;
-            this.nudMiscellaneous.DecimalPlaces = 2;
-            this.nudMiscellaneous.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudMiscellaneous.Location = new System.Drawing.Point(404, 315);
-            this.nudMiscellaneous.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudMiscellaneous.Name = "nudMiscellaneous";
-            this.nudMiscellaneous.ReadOnly = true;
-            this.nudMiscellaneous.Size = new System.Drawing.Size(191, 26);
-            this.nudMiscellaneous.TabIndex = 52;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 319);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 16);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Tuition Fee:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(313, 319);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 16);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Miscellaneous:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(380, 350);
+            this.label6.Location = new System.Drawing.Point(289, 331);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 16);
+            this.label6.Size = new System.Drawing.Size(94, 16);
             this.label6.TabIndex = 44;
-            this.label6.Text = "Assessment:";
+            this.label6.Text = "Downpayment:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(299, 460);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 16);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "4th Payment:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(298, 432);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 16);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "3rd Payment:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(296, 403);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 16);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "2nd Payment:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(436, 379);
+            this.label7.Location = new System.Drawing.Point(300, 374);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 16);
+            this.label7.Size = new System.Drawing.Size(83, 16);
             this.label7.TabIndex = 41;
-            this.label7.Text = "ID:";
+            this.label7.Text = "1st Payment:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(392, 409);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 16);
-            this.label8.TabIndex = 45;
-            this.label8.Text = "Insurance:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(400, 440);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 16);
-            this.label9.TabIndex = 46;
-            this.label9.Text = "T - Shirt:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(370, 470);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 16);
-            this.label10.TabIndex = 47;
-            this.label10.Text = "Special Order:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(41, 489);
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(24, 352);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 16);
+            this.label11.Size = new System.Drawing.Size(81, 16);
             this.label11.TabIndex = 42;
-            this.label11.Text = "TOTAL FEE:";
+            this.label11.Text = "TUITION FEE";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // printDocument
@@ -529,14 +511,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProgramFees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTuitionFee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAssessment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudInsurance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTShirt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSpecialOrder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMiscellaneous)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDownPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud1stPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud2ndPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud3rdPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud4thPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTuition)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -545,29 +525,18 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvProgramFees;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalFee;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown nudTuitionFee;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown nudAssessment;
-        private System.Windows.Forms.NumericUpDown nudID;
-        private System.Windows.Forms.NumericUpDown nudInsurance;
-        private System.Windows.Forms.NumericUpDown nudTShirt;
-        private System.Windows.Forms.NumericUpDown nudSpecialOrder;
+        private System.Windows.Forms.NumericUpDown nudDownPayment;
+        private System.Windows.Forms.NumericUpDown nud1stPayment;
+        private System.Windows.Forms.NumericUpDown nud2ndPayment;
+        private System.Windows.Forms.NumericUpDown nud3rdPayment;
+        private System.Windows.Forms.NumericUpDown nud4thPayment;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown nudTotal;
-        private System.Windows.Forms.NumericUpDown nudMiscellaneous;
+        private System.Windows.Forms.NumericUpDown nudTuition;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtCopr;
         private System.Windows.Forms.TextBox txtProgramTitle;
@@ -575,5 +544,15 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalFee;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbxCopies;
+        private System.Windows.Forms.Label label2;
     }
 }

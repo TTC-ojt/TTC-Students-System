@@ -9,6 +9,7 @@
         internal Views.Maintenance.Teachers vTeachers;
         internal Views.Maintenance.TuitionFee vTuitionFee;
         internal Views.Maintenance.TVETProvidersProfile vTVETProvidersProfile;
+        internal Views.ExportToExcel vExportToExcel;
 
         internal Maintenance(Main cMain)
         {
@@ -48,6 +49,13 @@
             vTVETProvidersProfile = new Views.Maintenance.TVETProvidersProfile(this);
             vTVETProvidersProfile.MdiParent = this.cMain.vMain;
             vTVETProvidersProfile.Show();
+        }
+
+        internal void ShowExportToExcel()
+        {
+            vExportToExcel = new Views.ExportToExcel(this);
+            vExportToExcel.MdiParent = cMain.vMain;
+            vExportToExcel.Show();
         }
 
         internal void Close()

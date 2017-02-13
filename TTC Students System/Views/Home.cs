@@ -84,8 +84,7 @@ namespace GN.TTC.Students.Views
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
-            ExportToExcel ex = new ExportToExcel();
-            ex.ShowDialog();
+            cMain.StartMaintenance().ShowExportToExcel();
         }
 
         private void btnCompany_Click(object sender, EventArgs e)

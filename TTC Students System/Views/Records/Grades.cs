@@ -26,9 +26,17 @@ namespace GN.TTC.Students.Views.Records
         private Controllers.Records cRecords;
         private Bitmap img;
 
+        internal bool FromStudentsList = false;
+        internal Controllers.StudentsList cStudentsList;
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            if (FromStudentsList)
+            {
+                cStudentsList.ShowListOfStudents();
+                return;
+            }
             cRecords.Close();
         }
 
@@ -62,12 +70,12 @@ namespace GN.TTC.Students.Views.Records
         private void LoadSubjects()
         {
             subjects = Models.Subject.getAllByProgram(program.ID);
-            if (dgvGrades.Columns.Count > 2)
+            if (dgvGrades.Columns.Count > 3)
             {
                 int cols = dgvGrades.Columns.Count;
-                for (int i = 2; i < cols; i++)
+                for (int i = 3; i < cols; i++)
                 {
-                    dgvGrades.Columns.RemoveAt(2);
+                    dgvGrades.Columns.RemoveAt(3);
                 }
             }
             foreach (Models.Subject subject in subjects)
@@ -77,6 +85,7 @@ namespace GN.TTC.Students.Views.Records
                 dgcSubject.FillWeight = 7;
                 dgcSubject.Name = "dgc" + subject.Code;
                 dgcSubject.HeaderText = subject.Code;
+                dgcSubject.SortMode = DataGridViewColumnSortMode.NotSortable;
                 dgvGrades.Columns.AddRange(new DataGridViewColumn[] { dgcSubject });
             }
             var dgc = new DataGridViewTextBoxColumn();
@@ -107,12 +116,14 @@ namespace GN.TTC.Students.Views.Records
         {
             students = Models.Student.getByBatch(batch.ID);
             dgvGrades.Rows.Clear();
+            int c = 1;
             foreach (Models.Student student in students)
             {
-                string[] grades = new string[subjects.Count + 3];
+                string[] grades = new string[subjects.Count + 4];
                 grades[0] = student.ID.ToString();
-                grades[1] = student.GetFullName();
-                int i = 2;
+                grades[1] = c.ToString();
+                grades[2] = student.GetFullName();
+                int i = 3;
                 decimal sum = 0m;
                 int count = 0;
                 foreach (Models.Subject subject in subjects)
@@ -128,6 +139,7 @@ namespace GN.TTC.Students.Views.Records
                 if (count > 0) grades[i] = (sum / count).ToString("N");
                 else grades[i] = 0m.ToString("N");
                 dgvGrades.Rows.Add(grades);
+                c++;
             }
         }
 
@@ -139,7 +151,7 @@ namespace GN.TTC.Students.Views.Records
                 foreach (Models.Subject subject in subjects)
                 {
                     string score = row.Cells["dgc" + subject.Code].Value.ToString();
-                    Models.Grade grade = new Models.Grade();
+                    Models.Grade grade = Models.Grade.getBySubjectAndStudent(subject.ID, student_id);
                     grade.StudentID = student_id;
                     grade.SubjectID = subject.ID;
                     grade.Score = score;
@@ -186,6 +198,14 @@ namespace GN.TTC.Students.Views.Records
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
             e.Graphics.DrawImage(img, e.PageBounds.Width / 2 - img.Width / 2, 50);
+        }
+
+        private void Grades_Load(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn col in dgvGrades.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
     }
 }

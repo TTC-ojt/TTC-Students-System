@@ -38,9 +38,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCompanyOfEmployment = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.companyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nudSaturdayDay = new System.Windows.Forms.NumericUpDown();
+            this.nudSaturdayHour = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.nudTransportation = new System.Windows.Forms.NumericUpDown();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -75,13 +78,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.nudSaturdayDay = new System.Windows.Forms.NumericUpDown();
-            this.nudSaturdayHour = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanyOfEmployment)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayDay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTransportation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNightPremiumDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNightPremiumHour)).BeginInit();
@@ -94,8 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHolidayHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRegularDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRegularHour)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayDay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayHour)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -194,6 +195,7 @@
             this.dgvCompanyOfEmployment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompanyOfEmployment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column2,
             this.companyName});
             this.dgvCompanyOfEmployment.Location = new System.Drawing.Point(7, 45);
             this.dgvCompanyOfEmployment.MultiSelect = false;
@@ -204,20 +206,6 @@
             this.dgvCompanyOfEmployment.Size = new System.Drawing.Size(471, 261);
             this.dgvCompanyOfEmployment.TabIndex = 0;
             this.dgvCompanyOfEmployment.SelectionChanged += new System.EventHandler(this.dgvCompanyOfEmployment_SelectionChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // companyName
-            // 
-            this.companyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.companyName.HeaderText = "NAME";
-            this.companyName.Name = "companyName";
-            this.companyName.ReadOnly = true;
             // 
             // panel1
             // 
@@ -272,6 +260,67 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(484, 670);
             this.panel1.TabIndex = 0;
+            // 
+            // nudSaturdayDay
+            // 
+            this.nudSaturdayDay.DecimalPlaces = 2;
+            this.nudSaturdayDay.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudSaturdayDay.Location = new System.Drawing.Point(395, 405);
+            this.nudSaturdayDay.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nudSaturdayDay.Name = "nudSaturdayDay";
+            this.nudSaturdayDay.Size = new System.Drawing.Size(83, 23);
+            this.nudSaturdayDay.TabIndex = 63;
+            // 
+            // nudSaturdayHour
+            // 
+            this.nudSaturdayHour.DecimalPlaces = 2;
+            this.nudSaturdayHour.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudSaturdayHour.Location = new System.Drawing.Point(228, 405);
+            this.nudSaturdayHour.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nudSaturdayHour.Name = "nudSaturdayHour";
+            this.nudSaturdayHour.Size = new System.Drawing.Size(83, 23);
+            this.nudSaturdayHour.TabIndex = 62;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(174, 407);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 16);
+            this.label18.TabIndex = 66;
+            this.label18.Text = "Rate/Hr:";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(324, 407);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(65, 16);
+            this.label24.TabIndex = 64;
+            this.label24.Text = "Rate/Day:";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(99, 406);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(64, 16);
+            this.label25.TabIndex = 65;
+            this.label25.Text = "Saturday:";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nudTransportation
             // 
@@ -688,66 +737,28 @@
             // 
             this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
             // 
-            // nudSaturdayDay
+            // Column1
             // 
-            this.nudSaturdayDay.DecimalPlaces = 2;
-            this.nudSaturdayDay.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSaturdayDay.Location = new System.Drawing.Point(395, 405);
-            this.nudSaturdayDay.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nudSaturdayDay.Name = "nudSaturdayDay";
-            this.nudSaturdayDay.Size = new System.Drawing.Size(83, 23);
-            this.nudSaturdayDay.TabIndex = 63;
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
-            // nudSaturdayHour
+            // Column2
             // 
-            this.nudSaturdayHour.DecimalPlaces = 2;
-            this.nudSaturdayHour.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSaturdayHour.Location = new System.Drawing.Point(228, 405);
-            this.nudSaturdayHour.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nudSaturdayHour.Name = "nudSaturdayHour";
-            this.nudSaturdayHour.Size = new System.Drawing.Size(83, 23);
-            this.nudSaturdayHour.TabIndex = 62;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.FillWeight = 5F;
+            this.Column2.HeaderText = "#";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // label18
+            // companyName
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(174, 407);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 16);
-            this.label18.TabIndex = 66;
-            this.label18.Text = "Rate/Hr:";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(324, 407);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 16);
-            this.label24.TabIndex = 64;
-            this.label24.Text = "Rate/Day:";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(99, 406);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(64, 16);
-            this.label25.TabIndex = 65;
-            this.label25.Text = "Saturday:";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.companyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.companyName.FillWeight = 50F;
+            this.companyName.HeaderText = "NAME";
+            this.companyName.Name = "companyName";
+            this.companyName.ReadOnly = true;
             // 
             // Companies
             // 
@@ -765,6 +776,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanyOfEmployment)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayDay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTransportation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNightPremiumDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNightPremiumHour)).EndInit();
@@ -777,8 +790,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHolidayHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRegularDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRegularHour)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayDay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSaturdayHour)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -823,8 +834,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtCompanyAddress;
         private System.Windows.Forms.TextBox txtNameofCompny;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn companyName;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.NumericUpDown nudTransportation;
@@ -835,5 +844,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyName;
     }
 }

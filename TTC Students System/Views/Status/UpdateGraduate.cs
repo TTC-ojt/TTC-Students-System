@@ -17,18 +17,18 @@ namespace GN.TTC.Students.Views.Status
         }
 
         internal Models.Student student = new Models.Student();
+        Models.Training training = new Models.Training();
+        Models.Graduate graduate = new Models.Graduate();
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             student.Status = "GRADUATE";
             student.Save();
 
-            Models.Training training = Models.Training.getTrainingByStudent(student.ID);
             training.DateFinished = dtpDate.Value;
             training.Result = "COMPETENT";
             training.Save();
 
-            Models.Graduate graduate = new Models.Graduate();
             graduate.StudentID = student.ID;
             graduate.SpecialOrder = txtSpecialOrder.Text;
             graduate.DateIssued = dtpIssued.Value;
@@ -39,6 +39,13 @@ namespace GN.TTC.Students.Views.Status
 
         private void UpdateGraduate_Load(object sender, EventArgs e)
         {
+            graduate = Models.Graduate.getByStudent(student.ID);
+            training = Models.Training.getTrainingByStudent(student.ID);
+
+            txtSpecialOrder.Text = graduate.SpecialOrder;
+            dtpDate.Value = training.DateFinished;
+            dtpIssued.Value = graduate.DateIssued;
+
             dtpDate.Value = DateTime.Today;
             lblStudentNumber.Text = student.Number;
             lblFullName.Text = student.GetFullName();

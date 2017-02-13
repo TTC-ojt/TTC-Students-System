@@ -46,7 +46,7 @@ namespace GN.TTC.Students.Views.Registration
 
         private void LearnerClassification_Load(object sender, EventArgs e)
         {
-            nudTuition.Value = cRegistration.mProgram.GetFullTuition();
+            nudTuition.Value = cRegistration.mProgram.Tuition;
         }
     }
 }

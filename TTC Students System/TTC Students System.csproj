@@ -41,9 +41,10 @@
     <ApplicationIcon>ttc.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\ExcelLibrary.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft Office\Office15\DCF\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Connection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,7 +84,6 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Employment.cs" />
-    <Compile Include="Models\Fee.cs" />
     <Compile Include="Models\DTR.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\YP4SC.cs" />
@@ -114,6 +114,12 @@
     </Compile>
     <Compile Include="Views\Billing\UpdateTuition.Designer.cs">
       <DependentUpon>UpdateTuition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConnectionSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ConnectionSettings.designer.cs">
+      <DependentUpon>ConnectionSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ExportToExcel.cs">
       <SubType>Form</SubType>
@@ -195,17 +201,23 @@
     <Compile Include="Views\Payroll\ComputeTime.Designer.cs">
       <DependentUpon>ComputeTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Payroll\SelectStudent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Payroll\SelectStudent.Designer.cs">
-      <DependentUpon>SelectStudent.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Payroll\TimeRecords.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Payroll\TimeRecords.Designer.cs">
       <DependentUpon>TimeRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Print\ExcelExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Print\ExcelExport.Designer.cs">
+      <DependentUpon>ExcelExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Print\TuitionBreakdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Print\TuitionBreakdown.designer.cs">
+      <DependentUpon>TuitionBreakdown.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Print\Payroll.cs">
       <SubType>Form</SubType>
@@ -213,10 +225,10 @@
     <Compile Include="Views\Print\Payroll.designer.cs">
       <DependentUpon>Payroll.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Records\StatementOfAccount.cs">
+    <Compile Include="Views\Print\StatementOfAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Records\StatementOfAccount.designer.cs">
+    <Compile Include="Views\Print\StatementOfAccount.designer.cs">
       <DependentUpon>StatementOfAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Records\Insurances.cs">
@@ -364,6 +376,9 @@
     <EmbeddedResource Include="Views\Billing\UpdateTuition.resx">
       <DependentUpon>UpdateTuition.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConnectionSettings.resx">
+      <DependentUpon>ConnectionSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ExportToExcel.resx">
       <DependentUpon>ExportToExcel.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,16 +418,19 @@
     <EmbeddedResource Include="Views\Payroll\ComputeTime.resx">
       <DependentUpon>ComputeTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Payroll\SelectStudent.resx">
-      <DependentUpon>SelectStudent.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Payroll\TimeRecords.resx">
       <DependentUpon>TimeRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Print\ExcelExport.resx">
+      <DependentUpon>ExcelExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Print\TuitionBreakdown.resx">
+      <DependentUpon>TuitionBreakdown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Print\Payroll.resx">
       <DependentUpon>Payroll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Records\StatementOfAccount.resx">
+    <EmbeddedResource Include="Views\Print\StatementOfAccount.resx">
       <DependentUpon>StatementOfAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Records\Insurances.resx">

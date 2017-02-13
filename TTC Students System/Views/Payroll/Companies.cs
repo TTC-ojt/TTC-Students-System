@@ -22,9 +22,11 @@ namespace GN.TTC.Students.Views.Payroll
         {
             companies = Models.Company.getAll();
             dgvCompanyOfEmployment.Rows.Clear();
+            int c = 1;
             foreach(Models.Company company in companies)
             {
-                dgvCompanyOfEmployment.Rows.Add(company.ID, company.Name);
+                dgvCompanyOfEmployment.Rows.Add(company.ID, c, company.Name);
+                c++;
             }
             dgvCompanyOfEmployment.ClearSelection();
         }
@@ -53,6 +55,10 @@ namespace GN.TTC.Students.Views.Payroll
 
         private void CompanyOfEmployment_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn col in dgvCompanyOfEmployment.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             showData();
         }
 

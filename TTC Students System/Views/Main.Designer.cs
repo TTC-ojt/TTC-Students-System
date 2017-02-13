@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnConnectionSettings = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.White;
-            this.lblDateTime.Location = new System.Drawing.Point(667, 10);
+            this.lblDateTime.Location = new System.Drawing.Point(623, 10);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(86, 23);
             this.lblDateTime.TabIndex = 0;
@@ -59,11 +61,13 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.DarkGreen;
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.lblDateTime, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnConnectionSettings, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -86,6 +90,20 @@
             this.label1.Text = "Jose && Demetria Cojuangco Foundation Inc. - Tarlac Training Center";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.UseWaitCursor = true;
+            // 
+            // btnConnectionSettings
+            // 
+            this.btnConnectionSettings.AutoSize = true;
+            this.btnConnectionSettings.FlatAppearance.BorderSize = 0;
+            this.btnConnectionSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnectionSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnConnectionSettings.Image")));
+            this.btnConnectionSettings.Location = new System.Drawing.Point(715, 3);
+            this.btnConnectionSettings.Name = "btnConnectionSettings";
+            this.btnConnectionSettings.Size = new System.Drawing.Size(38, 37);
+            this.btnConnectionSettings.TabIndex = 2;
+            this.btnConnectionSettings.UseVisualStyleBackColor = true;
+            this.btnConnectionSettings.UseWaitCursor = true;
+            this.btnConnectionSettings.Click += new System.EventHandler(this.btnConnectionSettings_Click);
             // 
             // Main
             // 
@@ -114,6 +132,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnConnectionSettings;
     }
 }
 

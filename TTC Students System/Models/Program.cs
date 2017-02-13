@@ -22,6 +22,11 @@ namespace GN.TTC.Students.Models
             Tuition = 0m;
             Hours = 0;
             ShortName = "";
+            DownPayment = 0m;
+            FirstPayment = 0m;
+            SecondPayment = 0m;
+            ThirdPayment = 0m;
+            FourthPayment = 0m;
         }
 
         internal int ID;
@@ -36,6 +41,11 @@ namespace GN.TTC.Students.Models
         internal decimal Tuition;
         internal short Hours;
         internal string ShortName;
+        internal decimal DownPayment;
+        internal decimal FirstPayment;
+        internal decimal SecondPayment;
+        internal decimal ThirdPayment;
+        internal decimal FourthPayment;
 
         /// <summary>
         /// Gets all programs
@@ -69,6 +79,11 @@ namespace GN.TTC.Students.Models
                             program.Tuition = rdr.GetDecimal(9);
                             program.Hours = rdr.GetInt16(10);
                             program.ShortName = rdr.GetString(11);
+                            program.DownPayment = rdr.GetDecimal(12);
+                            program.FirstPayment = rdr.GetDecimal(13);
+                            program.SecondPayment = rdr.GetDecimal(14);
+                            program.ThirdPayment = rdr.GetDecimal(15);
+                            program.FourthPayment = rdr.GetDecimal(16);
                             programs.Add(program);
                         }
                     }
@@ -114,6 +129,11 @@ namespace GN.TTC.Students.Models
                             program.Tuition = rdr.GetDecimal(9);
                             program.Hours = rdr.GetInt16(10);
                             program.ShortName = rdr.GetString(11);
+                            program.DownPayment = rdr.GetDecimal(12);
+                            program.FirstPayment = rdr.GetDecimal(13);
+                            program.SecondPayment = rdr.GetDecimal(14);
+                            program.ThirdPayment = rdr.GetDecimal(15);
+                            program.FourthPayment = rdr.GetDecimal(16);
                         }
                     }
                 }
@@ -123,42 +143,6 @@ namespace GN.TTC.Students.Models
                 ErrorTrapper.Log(ex, LogOptions.PromptTheUser);
             }
             return program;
-        }
-
-        /// <summary>
-        /// Sums up all tuition under this Program
-        /// </summary>
-        /// <returns>Full Tuition</returns>
-        internal decimal GetFullTuition()
-        {
-            decimal full_tuition = Tuition;
-            try
-            {
-                string query = "SELECT assessment, id_card, insurance, tshirt, special FROM fees WHERE program_id=@program_id";
-                using (MySqlConnection con = new MySqlConnection(Builder.ConnectionString))
-                {
-                    MySqlCommand cmd = new MySqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("program_id", ID);
-                    con.Open();
-                    using (MySqlDataReader rdr = cmd.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            full_tuition += rdr.GetDecimal(0);
-                            full_tuition += rdr.GetDecimal(1);
-                            full_tuition += rdr.GetDecimal(2);
-                            full_tuition += rdr.GetDecimal(3);
-                            full_tuition += rdr.GetDecimal(4);
-                            break;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorTrapper.Log(ex, LogOptions.PromptTheUser);
-            }
-            return full_tuition;
         }
 
         internal void Save()
@@ -171,12 +155,12 @@ namespace GN.TTC.Students.Models
                     cmd.Connection = con;
                     if (ID > 0)
                     {
-                        cmd.CommandText = "UPDATE programs SET industry = @industry, status = @status, title = @title, copr = @copr, calendar = @calendar, delivery = @delivery, one_year = @one_year, short_course = @short_course, tuition = @tuition, hours = @hours, short_name = @short_name WHERE id = @id";
+                        cmd.CommandText = "UPDATE programs SET industry = @industry, status = @status, title = @title, copr = @copr, calendar = @calendar, delivery = @delivery, one_year = @one_year, short_course = @short_course, tuition = @tuition, hours = @hours, short_name = @short_name, downpayment = @downpayment, 1stpayment = @1stpayment, 2ndpayment = @2ndpayment, 3rdpayment = @3rdpayment, 4thpayment = @4thpayment WHERE id = @id";
                         cmd.Parameters.AddWithValue("id", ID);
                     }
                     else
                     {
-                        cmd.CommandText = "INSERT INTO programs (industry, status, title, copr, calendar, delivery, one_year, short_course, tuition, hours, short_name) VALUES (@industry, @status, @title, @copr, @calendar, @delivery, @one_year, @short_course, @tuition, @hours, @short_name)";
+                        cmd.CommandText = "INSERT INTO programs (industry, status, title, copr, calendar, delivery, one_year, short_course, tuition, hours, short_name, downpayment, 1stpayment, 2ndpayment, 3rdpayment, 4thpayment) VALUES (@industry, @status, @title, @copr, @calendar, @delivery, @one_year, @short_course, @tuition, @hours, @short_name, @downpayment, @1stpayment, @2ndpayment, @3rdpayment, @4thpayment)";
                     }
                     cmd.Parameters.AddWithValue("industry", Industry);
                     cmd.Parameters.AddWithValue("status", Status);
@@ -189,6 +173,11 @@ namespace GN.TTC.Students.Models
                     cmd.Parameters.AddWithValue("tuition", Tuition);
                     cmd.Parameters.AddWithValue("hours", Hours);
                     cmd.Parameters.AddWithValue("short_name", ShortName);
+                    cmd.Parameters.AddWithValue("downpayment", DownPayment);
+                    cmd.Parameters.AddWithValue("1stpayment", FirstPayment);
+                    cmd.Parameters.AddWithValue("2ndpayment", SecondPayment);
+                    cmd.Parameters.AddWithValue("3rdpayment", ThirdPayment);
+                    cmd.Parameters.AddWithValue("4thpayment", FourthPayment);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     if (ID == 0) ID = Convert.ToInt32(cmd.LastInsertedId);

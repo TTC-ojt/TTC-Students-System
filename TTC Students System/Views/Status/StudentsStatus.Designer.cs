@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,10 +64,11 @@
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.colStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ULI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcProgram = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgcStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.grpFilter.SuspendLayout();
@@ -75,6 +77,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnExportToExcel);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.label7);
@@ -101,6 +104,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(763, 623);
             this.panel1.TabIndex = 0;
+            // 
+            // btnExportToExcel
+            // 
+            this.btnExportToExcel.BackColor = System.Drawing.Color.Silver;
+            this.btnExportToExcel.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnExportToExcel.FlatAppearance.BorderSize = 2;
+            this.btnExportToExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
+            this.btnExportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportToExcel.Image")));
+            this.btnExportToExcel.Location = new System.Drawing.Point(620, 558);
+            this.btnExportToExcel.Margin = new System.Windows.Forms.Padding(0, 3, 10, 3);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(69, 59);
+            this.btnExportToExcel.TabIndex = 10;
+            this.btnExportToExcel.Text = "Export to Excel";
+            this.btnExportToExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExportToExcel.UseVisualStyleBackColor = false;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
             // 
             // txtSearch
             // 
@@ -381,6 +403,7 @@
             this.dgvStudents.AllowUserToDeleteRows = false;
             this.dgvStudents.AllowUserToResizeColumns = false;
             this.dgvStudents.AllowUserToResizeRows = false;
+            this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -392,10 +415,11 @@
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colStudentID,
-            this.ULI,
-            this.studentName,
+            this.dgcNumber,
+            this.dgcName,
+            this.dgcProgram,
             this.Column1,
-            this.status});
+            this.dgcStatus});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -411,6 +435,7 @@
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudents.Size = new System.Drawing.Size(637, 348);
             this.dgvStudents.TabIndex = 4;
+            this.dgvStudents.Sorted += new System.EventHandler(this.dgvStudents_Sorted);
             // 
             // grpFilter
             // 
@@ -529,38 +554,46 @@
             this.colStudentID.Name = "colStudentID";
             this.colStudentID.ReadOnly = true;
             this.colStudentID.Visible = false;
+            this.colStudentID.Width = 27;
             // 
-            // ULI
+            // dgcNumber
             // 
-            this.ULI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ULI.FillWeight = 5F;
-            this.ULI.HeaderText = "#";
-            this.ULI.Name = "ULI";
-            this.ULI.ReadOnly = true;
+            this.dgcNumber.FillWeight = 5F;
+            this.dgcNumber.HeaderText = "#";
+            this.dgcNumber.Name = "dgcNumber";
+            this.dgcNumber.ReadOnly = true;
+            this.dgcNumber.Width = 39;
             // 
-            // studentName
+            // dgcName
             // 
-            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.studentName.FillWeight = 25F;
-            this.studentName.HeaderText = "NAME";
-            this.studentName.Name = "studentName";
-            this.studentName.ReadOnly = true;
+            this.dgcName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcName.FillWeight = 25F;
+            this.dgcName.HeaderText = "NAME";
+            this.dgcName.Name = "dgcName";
+            this.dgcName.ReadOnly = true;
+            // 
+            // dgcProgram
+            // 
+            this.dgcProgram.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgcProgram.FillWeight = 25F;
+            this.dgcProgram.HeaderText = "PROGRAM";
+            this.dgcProgram.Name = "dgcProgram";
+            this.dgcProgram.ReadOnly = true;
             // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 10F;
-            this.Column1.HeaderText = "PROGRAM";
+            this.Column1.HeaderText = "BATCH";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 78;
             // 
-            // status
+            // dgcStatus
             // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.status.FillWeight = 15F;
-            this.status.HeaderText = "STATUS";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
+            this.dgcStatus.FillWeight = 15F;
+            this.dgcStatus.HeaderText = "STATUS";
+            this.dgcStatus.Name = "dgcStatus";
+            this.dgcStatus.ReadOnly = true;
+            this.dgcStatus.Width = 85;
             // 
             // StudentsStatus
             // 
@@ -616,10 +649,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.Button btnExportToExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStudentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ULI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcProgram;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcStatus;
     }
 }

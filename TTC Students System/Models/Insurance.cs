@@ -14,6 +14,7 @@ namespace GN.TTC.Students.Models
             Beneficiary = "";
             Relationship = "";
             Amount = 0m;
+            Expiration = DateTime.Today.AddYears(1);
         }
 
         //PROPERTIES
@@ -23,6 +24,7 @@ namespace GN.TTC.Students.Models
         internal string Beneficiary { get; set; }
         internal string Relationship { get; set; }
         internal decimal Amount { get; set; }
+        internal DateTime Expiration { get; set; }
 
         internal static Insurance getByStudent(int StudentID)
         {
@@ -46,6 +48,7 @@ namespace GN.TTC.Students.Models
                             insurance.Beneficiary = rdr.GetString(3);
                             insurance.Relationship = rdr.GetString(4);
                             insurance.Amount = rdr.GetDecimal(5);
+                            insurance.Expiration = rdr.GetDateTime(6);
                         }
                     }
                 }
@@ -67,17 +70,18 @@ namespace GN.TTC.Students.Models
                     cmd.Connection = con;
                     if (ID > 0)
                     {
-                        cmd.CommandText = "UPDATE insurances SET company = @company, beneficiary = @beneficiary, relationship = @relationship, amount = @amount WHERE student_id = @student_id";
+                        cmd.CommandText = "UPDATE insurances SET company = @company, beneficiary = @beneficiary, relationship = @relationship, amount = @amount, expiration = @expiration WHERE student_id = @student_id";
                     }
                     else
                     {
-                        cmd.CommandText = "INSERT INTO insurances (student_id, company, beneficiary, relationship, amount) VALUES (@student_id, @company, @beneficiary, @relationship, @amount)";
+                        cmd.CommandText = "INSERT INTO insurances (student_id, company, beneficiary, relationship, amount, expiration) VALUES (@student_id, @company, @beneficiary, @relationship, @amount, @expiration)";
                     }
                     cmd.Parameters.AddWithValue("student_id", StudentID);
                     cmd.Parameters.AddWithValue("company", Company);
                     cmd.Parameters.AddWithValue("beneficiary", Beneficiary);
                     cmd.Parameters.AddWithValue("relationship", Relationship);
                     cmd.Parameters.AddWithValue("amount", Amount);
+                    cmd.Parameters.AddWithValue("expiration", Expiration);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     if (ID == 0) ID = Convert.ToInt32(cmd.LastInsertedId);

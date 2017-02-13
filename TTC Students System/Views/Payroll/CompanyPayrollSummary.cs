@@ -19,6 +19,8 @@ namespace GN.TTC.Students.Views.Payroll
         Models.DTR dtr = new Models.DTR();
         Models.Company company = new Models.Company();
 
+        decimal allowance = 0m;
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -222,11 +224,47 @@ namespace GN.TTC.Students.Views.Payroll
             dgvCompanyOfEmployment.Columns.AddRange(columns.ToArray());
         }
 
+        decimal total_regHours = 0m;
+        decimal total_regDays = 0m;
+        decimal total_satHours = 0m;
+        decimal total_satDays = 0m;
+        decimal total_holHours = 0m;
+        decimal total_holDays = 0m;
+        decimal total_legHours = 0m;
+        decimal total_legDays = 0m;
+        decimal total_guaHours = 0m;
+        decimal total_guaDays = 0m;
+        decimal total_nigHours = 0m;
+        decimal total_nigDays = 0m;
+        decimal total_tra = 0m;
+        decimal total_ext = 0m;
+        decimal total_gross = 0m;
+        decimal total_grad = 0m;
+        decimal total_tuition = 0m;
+        decimal total_net = 0m;
         private void LoadInPlants(object sender, EventArgs e)
         {
             dtrs = Models.DTR.getAllByCompanyAndDateForSummary(company.ID, dtpStartDate.Value, dtpEndDate.Value);
             dgvCompanyOfEmployment.Rows.Clear();
             GenerateColumns();
+            total_regHours = 0m;
+            total_regDays = 0m;
+            total_satHours = 0m;
+            total_satDays = 0m;
+            total_holHours = 0m;
+            total_holDays = 0m;
+            total_legHours = 0m;
+            total_legDays = 0m;
+            total_guaHours = 0m;
+            total_guaDays = 0m;
+            total_nigHours = 0m;
+            total_nigDays = 0m;
+            total_tra = 0m;
+            total_ext = 0m;
+            total_gross = 0m;
+            total_grad = 0m;
+            total_tuition = 0m;
+            total_net = 0m;
             foreach (Models.DTR dtr in dtrs)
             {
                 Models.Student student = Models.Student.getByID(dtr.StudentID);
@@ -239,95 +277,193 @@ namespace GN.TTC.Students.Views.Payroll
                     gross += dtr.RegularHour * company.RegularHour;
                     values.Add(dtr.RegularHour.ToString("N"));
                     values.Add((dtr.RegularHour * company.RegularHour).ToString("N"));
+                    total_regHours += dtr.RegularHour * company.RegularHour;
                 }
                 if (company.RegularDay > 0)
                 {
                     gross += dtr.RegularDay * company.RegularDay;
                     values.Add(dtr.RegularDay.ToString("N"));
                     values.Add((dtr.RegularDay * company.RegularDay).ToString("N"));
+                    total_regDays += dtr.RegularDay* company.RegularDay;
                 }
                 if (company.SaturdayHour > 0)
                 {
                     gross += dtr.SaturdayHour * company.SaturdayHour;
                     values.Add(dtr.SaturdayHour.ToString("N"));
                     values.Add((dtr.SaturdayHour * company.SaturdayHour).ToString("N"));
+                    total_satHours += dtr.SaturdayHour * company.SaturdayHour;
                 }
                 if (company.SaturdayDay > 0)
                 {
                     gross += dtr.SaturdayDay * company.SaturdayDay;
                     values.Add(dtr.SaturdayDay.ToString("N"));
                     values.Add((dtr.SaturdayDay * company.SaturdayDay).ToString("N"));
+                    total_satDays += dtr.SaturdayDay * company.SaturdayDay;
                 }
                 if (company.HolidayHour > 0)
                 {
                     gross += dtr.HolidayHour * company.HolidayHour;
                     values.Add(dtr.HolidayHour.ToString("N"));
                     values.Add((dtr.HolidayHour * company.HolidayDay).ToString("N"));
+                    total_holHours += dtr.HolidayHour * company.HolidayHour;
                 }
                 if (company.HolidayDay > 0)
                 {
                     gross += dtr.HolidayDay * company.HolidayDay;
                     values.Add(dtr.HolidayDay.ToString("N"));
                     values.Add((dtr.HolidayDay * company.HolidayDay).ToString("N"));
+                    total_holDays += dtr.HolidayDay * company.HolidayDay;
                 }
                 if (company.LegalHolidayHour > 0)
                 {
                     gross += dtr.LegalHolidayHour * company.LegalHolidayHour;
                     values.Add(dtr.LegalHolidayHour.ToString("N"));
                     values.Add((dtr.LegalHolidayHour * company.LegalHolidayHour).ToString("N"));
+                    total_legHours += dtr.LegalHolidayHour * company.LegalHolidayHour;
                 }
                 if (company.LegalHolidayDay > 0)
                 {
                     gross += dtr.LegalHolidayDay * company.LegalHolidayDay;
                     values.Add(dtr.LegalHolidayDay.ToString("N"));
                     values.Add((dtr.LegalHolidayDay * company.LegalHolidayDay).ToString("N"));
+                    total_legDays += dtr.LegalHolidayDay * company.LegalHolidayDay;
                 }
                 if (company.GuaranteeHour > 0)
                 {
                     gross += dtr.GuaranteeHour * company.GuaranteeHour;
                     values.Add(dtr.GuaranteeHour.ToString("N"));
                     values.Add((dtr.GuaranteeHour * company.GuaranteeHour).ToString("N"));
+                    total_guaHours += dtr.GuaranteeHour * company.GuaranteeHour;
                 }
                 if (company.GuaranteeDay > 0)
                 {
                     gross += dtr.GuaranteeDay * company.GuaranteeDay;
                     values.Add(dtr.GuaranteeDay.ToString("N"));
                     values.Add((dtr.GuaranteeDay * company.GuaranteeDay).ToString("N"));
+                    total_guaDays += dtr.GuaranteeDay * company.GuaranteeDay;
                 }
                 if (company.ExtendedTime > 0)
                 {
                     gross += dtr.ExtendedTime * company.ExtendedTime;
                     values.Add(dtr.ExtendedTime.ToString("N"));
                     values.Add((dtr.ExtendedTime * company.ExtendedTime).ToString("N"));
+                    total_ext += dtr.ExtendedTime * company.ExtendedTime;
                 }
                 if (company.NightPremiumHour > 0)
                 {
                     gross += dtr.NightPremiumHour * company.NightPremiumHour;
                     values.Add(dtr.NightPremiumHour.ToString("N"));
                     values.Add((dtr.NightPremiumHour * company.NightPremiumDay).ToString("N"));
+                    total_nigHours += dtr.NightPremiumHour * company.NightPremiumHour;
                 }
                 if (company.NightPremiumDay > 0)
                 {
                     gross += dtr.NightPremiumDay * company.NightPremiumDay;
                     values.Add(dtr.NightPremiumDay.ToString("N"));
                     values.Add((dtr.NightPremiumDay * company.NightPremiumDay).ToString("N"));
+                    total_nigDays += dtr.NightPremiumDay * company.NightPremiumDay;
                 }
                 if (company.TransportationAllowance>0)
                 {
                     gross += dtr.TransportationAllowance;
                     values.Add(dtr.TransportationAllowance.ToString("N"));
+                    total_tra += dtr.TransportationAllowance;
                 }
                 //gross
                 values.Add(gross.ToString("N"));
+                total_gross += gross;
                 //gradfee
                 values.Add(0.ToString("N"));
+                total_grad += 0;
                 //tuitionfee
                 values.Add(0.ToString("N"));
+                total_tuition += 0;
                 //net
                 values.Add(gross.ToString("N"));
+                total_net += gross;
                 dgvCompanyOfEmployment.Rows.Add(values.ToArray());
             }
+            List<Object> val = new List<Object>();
+            val.Add(0);
+            val.Add("TOTAL");
+            if (company.RegularHour > 0)
+            {
+                val.Add("");
+                val.Add(total_regHours.ToString("N"));
+            }
+            if (company.RegularDay > 0)
+            {
+                val.Add("");
+                val.Add(total_regDays.ToString("N"));
+            }
+            if (company.SaturdayHour > 0)
+            {
+                val.Add("");
+                val.Add(total_satHours.ToString("N"));
+            }
+            if (company.SaturdayDay > 0)
+            {
+                val.Add("");
+                val.Add(total_satDays.ToString("N"));
+            }
+            if (company.HolidayHour > 0)
+            {
+                val.Add("");
+                val.Add(total_holHours.ToString("N"));
+            }
+            if (company.HolidayDay > 0)
+            {
+                val.Add("");
+                val.Add(total_holDays.ToString("N"));
+            }
+            if (company.LegalHolidayHour > 0)
+            {
+                val.Add("");
+                val.Add(total_legHours.ToString("N"));
+            }
+            if (company.LegalHolidayDay > 0)
+            {
+                val.Add("");
+                val.Add(total_legDays.ToString("N"));
+            }
+            if (company.GuaranteeHour > 0)
+            {
+                val.Add("");
+                val.Add(total_guaHours.ToString("N"));
+            }
+            if (company.GuaranteeDay > 0)
+            {
+                val.Add("");
+                val.Add(total_guaDays.ToString("N"));
+            }
+            if (company.ExtendedTime > 0)
+            {
+                val.Add("");
+                val.Add(total_ext.ToString("N"));
+            }
+            if (company.NightPremiumHour > 0)
+            {
+                val.Add("");
+                val.Add(total_nigHours.ToString("N"));
+            }
+            if (company.NightPremiumDay > 0)
+            {
+                val.Add("");
+                val.Add(total_nigDays.ToString("N"));
+            }
+            if (company.TransportationAllowance > 0)
+            {
+                val.Add(total_tra.ToString("N"));
+            }
+            val.Add(total_gross.ToString("N"));
+            val.Add(total_grad.ToString("N"));
+            val.Add(total_tuition.ToString("N"));
+            val.Add(total_net.ToString("N"));
+
+            dgvCompanyOfEmployment.Rows.Add(val.ToArray());
             dgvCompanyOfEmployment.ClearSelection();
+            txtAllowance.Text = total_gross.ToString("N");
+            dgvCompanyOfEmployment.Rows[dgvCompanyOfEmployment.RowCount - 1].DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
         }
 
         private void CheckDataGrid()
@@ -452,6 +588,27 @@ namespace GN.TTC.Students.Views.Payroll
             psPrint = true;
             printDocument.DefaultPageSettings.Landscape = true;
             printPreviewDialog.ShowDialog();
+        }
+
+        private void txtSubsidy_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal subsidy = Convert.ToDecimal(txtSubsidy.Text);
+                decimal share = subsidy - total_net;
+                txtShare.Text = share.ToString("N");
+            }
+            catch (Exception ex) { ex = null; txtShare.Text = "0.00"; }
+        }
+
+        private void CompanyPayrollSummary_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

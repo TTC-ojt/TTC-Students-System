@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace GN.TTC.Students.Views.Status
 {
@@ -162,7 +164,7 @@ namespace GN.TTC.Students.Views.Status
             {
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
-                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.ShortName + " " + batch.Number, student.Status);
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number);
                 c++;
             }
         }
@@ -177,7 +179,7 @@ namespace GN.TTC.Students.Views.Status
             {
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
-                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.ShortName + " " + batch.Number, student.Status);
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number);
                 c++;
             }
         }
@@ -198,7 +200,7 @@ namespace GN.TTC.Students.Views.Status
                 Models.Company company = Models.Company.getbyCompanyId(inplant.CompanyID);
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
-                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.ShortName + " " + batch.Number, student.Status, company.Name);
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number, company.Name);
                 c++;
             }
         }
@@ -222,7 +224,7 @@ namespace GN.TTC.Students.Views.Status
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
                 Models.Graduate graduate = Models.Graduate.getByStudent(student.ID);
-                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.ShortName + " " + batch.Number, student.Status, graduate.SpecialOrder, graduate.DateIssued.ToShortDateString());
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number, graduate.SpecialOrder, graduate.DateIssued.ToShortDateString());
                 c++;
             }
         }
@@ -233,8 +235,6 @@ namespace GN.TTC.Students.Views.Status
             var dgc = new DataGridViewTextBoxColumn();
             dgc.Name = "dgcReason";
             dgc.HeaderText = "Reason";
-            dgc.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgc.FillWeight = 40;
             dgvStudents.Columns.Add(dgc);
             students = Models.Student.FindWithStatus(txtSearch.Text, program.ID, batch.ID, rbtnDropped.Text);
             dgvStudents.Rows.Clear();
@@ -244,7 +244,7 @@ namespace GN.TTC.Students.Views.Status
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
                 Models.Drop drop = Models.Drop.getByStudent(student.ID);
-                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.ShortName + " " + batch.Number, student.Status, drop.Reason);
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number, drop.Reason);
                 c++;
             }
         }
@@ -255,8 +255,6 @@ namespace GN.TTC.Students.Views.Status
             var dgc = new DataGridViewTextBoxColumn();
             dgc.Name = "dgcReason";
             dgc.HeaderText = "Reason";
-            dgc.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgc.FillWeight = 40;
             dgvStudents.Columns.Add(dgc);
             students = Models.Student.FindWithStatus(txtSearch.Text, program.ID, batch.ID, rbtnStopped.Text);
             dgvStudents.Rows.Clear();
@@ -266,7 +264,7 @@ namespace GN.TTC.Students.Views.Status
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
                 Models.Stop stop = Models.Stop.getByStudent(student.ID);
-                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.ShortName + " " + batch.Number, student.Status, stop.Reason);
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number, stop.Reason);
                 c++;
             }
         }
@@ -274,6 +272,10 @@ namespace GN.TTC.Students.Views.Status
         private void rbtnAll_CheckedChanged(object sender, EventArgs e)
         {
             resetColumns();
+            var dgc = new DataGridViewTextBoxColumn();
+            dgc.Name = "dgcStatus";
+            dgc.HeaderText = "STATUS";
+            dgvStudents.Columns.Add(dgc);
             students = Models.Student.Find(txtSearch.Text, program.ID, batch.ID);
             dgvStudents.Rows.Clear();
             int c = 1;
@@ -281,19 +283,19 @@ namespace GN.TTC.Students.Views.Status
             {
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
-                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.ShortName + " " + batch.Number, student.Status);
+                dgvStudents.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number, student.Status);
                 c++;
             }
         }
 
         private void resetColumns()
         {
-            if (dgvStudents.Columns.Count > 4)
+            if (dgvStudents.Columns.Count > 5)
             {
                 int cols = dgvStudents.Columns.Count;
-                for (int i = 4; i < cols; i++)
+                for (int i = 5; i < cols; i++)
                 {
-                    dgvStudents.Columns.RemoveAt(4);
+                    dgvStudents.Columns.RemoveAt(5);
                 }
             }
         }
@@ -318,6 +320,54 @@ namespace GN.TTC.Students.Views.Status
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
             e.Graphics.DrawImage(img, e.PageBounds.Width / 2 - img.Width / 2, 50);
+        }
+
+        private void dgvStudents_Sorted(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvStudents.Rows)
+            {
+                row.Cells[dgcNumber.Name].Value = row.Index + 1;
+            }
+        }
+
+        private void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                dgvStudents.SelectAll();
+                DataObject dataObj = dgvStudents.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+            dgvStudents.ClearSelection();
         }
     }
 }

@@ -28,9 +28,11 @@ namespace GN.TTC.Students.Views.Maintenance
         {
             teachers = Models.Teacher.getAll();
             dgvTeachers.Rows.Clear();
+            int c = 1;
             foreach(Models.Teacher teacher in teachers)
             {
-                dgvTeachers.Rows.Add(teacher.ID, teacher.Code, teacher.Name);
+                dgvTeachers.Rows.Add(teacher.ID, c, teacher.Code, teacher.Name);
+                c++;
             }
             dgvTeachers.ClearSelection();
         }
@@ -45,6 +47,10 @@ namespace GN.TTC.Students.Views.Maintenance
 
         private void Teachers_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn col in dgvTeachers.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             loadAllTeachers();
         }
 

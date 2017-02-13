@@ -94,11 +94,13 @@ D:\NEW\TTC Students System\TTC Students System\bin\Debug\TTC Students System.pdb
 D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Connection.dll
 D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Data.dll
 D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Connection.pdb
+D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Data.xml
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csprojResolveAssemblyReference.cache
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Properties.Resources.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.Pay.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.TransactionHistory.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Billing.UpdateTuition.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.ConnectionSettings.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.ExportToExcel.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Home.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Main.resources
@@ -112,8 +114,9 @@ D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.P
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.CompanyPayrollSummary.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.InPlants.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.ComputeTime.resources
-D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.SelectStudent.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Payroll.TimeRecords.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.ExcelExport.resources
+D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.TuitionBreakdown.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.Payroll.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Print.StatementOfAccount.resources
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.Records.Insurances.resources
@@ -140,4 +143,3 @@ D:\NEW\TTC Students System\TTC Students System\obj\Debug\GN.TTC.Students.Views.S
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.csproj.GenerateResource.Cache
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.exe
 D:\NEW\TTC Students System\TTC Students System\obj\Debug\TTC Students System.pdb
-D:\NEW\TTC Students System\TTC Students System\bin\Debug\MySql.Data.xml

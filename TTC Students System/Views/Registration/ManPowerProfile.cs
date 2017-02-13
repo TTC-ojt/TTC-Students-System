@@ -56,7 +56,7 @@ namespace GN.TTC.Students.Views.Registration
 
         private void LoadProgram()
         {
-            cRegistration.mStudent.Tuition = cRegistration.mProgram.GetFullTuition();
+            cRegistration.mStudent.Tuition = cRegistration.mProgram.Tuition;
             txtCopr.Text = cRegistration.mProgram.Copr;
             txtProgramTitle.Text = cRegistration.mProgram.Title;
             LoadBatches();

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace GN.TTC.Students.Views.Status
 {
@@ -57,11 +54,13 @@ namespace GN.TTC.Students.Views.Status
         {
             students = Models.Student.Find(txtSearch.Text, program.ID, batch.ID);
             dgvStudentsLists.Rows.Clear();
+            int c = 1;
             foreach (Models.Student student in students)
             {
                 Models.Batch batch = Models.Batch.GetByID(student.BatchID);
                 Models.Program program = Models.Program.getByID(batch.ProgramID);
-                dgvStudentsLists.Rows.Add(student.ID, student.Number, student.GetFullName(), program.ShortName + " " + batch.Number);
+                dgvStudentsLists.Rows.Add(student.ID, c, student.GetFullName(), program.Title, batch.Number);
+                c++;
             }
         }
 
@@ -110,29 +109,6 @@ namespace GN.TTC.Students.Views.Status
             LoadStudents();
         }
 
-        Bitmap img;
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            dgvStudentsLists.ClearSelection();
-            int height = dgvStudentsLists.Height;
-            dgvStudentsLists.Height = dgvStudentsLists.RowCount * dgvStudentsLists.RowTemplate.Height + dgvStudentsLists.Columns[0].HeaderCell.Size.Height;
-            dgvStudentsLists.ScrollBars = ScrollBars.None;
-            img = new Bitmap(dgvStudentsLists.Width, dgvStudentsLists.Height);
-            dgvStudentsLists.DrawToBitmap(img, new Rectangle(0, 0, dgvStudentsLists.Width, dgvStudentsLists.Height));
-            dgvStudentsLists.Height = height;
-            dgvStudentsLists.ScrollBars = ScrollBars.Vertical;
-            printPreviewDialog.ShowDialog();
-        }
-
-        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.InterpolationMode = InterpolationMode.Bicubic;
-            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
-            e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
-            e.Graphics.DrawImage(img, e.PageBounds.Width / 2 - img.Width / 2, 50);
-        }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (txtSearch.TextLength > 2)
@@ -160,12 +136,71 @@ namespace GN.TTC.Students.Views.Status
                 }
             }
             Records.Grades vGrades = new Records.Grades(cStudentsList.cMain.StartRecords());
+            vGrades.FromStudentsList = true;
+            vGrades.cStudentsList = cStudentsList;
             vGrades.LoadProgramAndBatch(program, batch);
             vGrades.Show();
             if (vGrades.Visible)
             {
-                this.Close();
+                this.Hide();
             }
+        }
+
+        private void ListOfStudents_Load(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn col in dgvStudentsLists.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        private void dgvStudentsLists_Sorted(object sender, EventArgs e)
+        {
+        }
+
+        private void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                dgvStudentsLists.SelectAll();
+                DataObject dataObj = dgvStudentsLists.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+            dgvStudentsLists.ClearSelection();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

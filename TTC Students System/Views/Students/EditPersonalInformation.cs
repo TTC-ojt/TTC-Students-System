@@ -52,6 +52,7 @@ namespace GN.TTC.Students.Views.Status
             if (rbtnPostSecondary.Checked) profile.Education = rbtnPostSecondary.Text;
             if (rbtnCollegeUndergraduate.Checked) profile.Education = rbtnCollegeUndergraduate.Text;
             if (rbtnCollegeGraduate.Checked) profile.Education = rbtnCollegeGraduate.Text;
+            profile.Guardian = txtGuardian.Text;
             profile.Save();
             employment.Save();
         }
@@ -108,6 +109,7 @@ namespace GN.TTC.Students.Views.Status
             if (profile.Education == rbtnPostSecondary.Text) rbtnPostSecondary.Checked = true;
             if (profile.Education == rbtnCollegeUndergraduate.Text) rbtnCollegeUndergraduate.Checked = true;
             if (profile.Education == rbtnCollegeGraduate.Text) rbtnCollegeGraduate.Checked = true;
+            txtGuardian.Text = profile.Guardian;
         }
     }
 }

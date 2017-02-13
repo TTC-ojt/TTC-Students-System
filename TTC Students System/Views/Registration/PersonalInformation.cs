@@ -64,6 +64,7 @@ namespace GN.TTC.Students.Views.Registration
             else if (rbtnPostSecondary.Checked) cRegistration.mProfile.Education = rbtnPostSecondary.Text;
             else if (rbtnCollegeUndergraduate.Checked) cRegistration.mProfile.Education = rbtnCollegeUndergraduate.Text;
             else if (rbtnCollegeGraduate.Checked) cRegistration.mProfile.Education = rbtnCollegeGraduate.Text;
+            cRegistration.mProfile.Guardian = txtGuardian.Text;
         }
 
         private void CalculateAge(object sender, EventArgs e)

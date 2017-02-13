@@ -151,6 +151,53 @@ namespace GN.TTC.Students.Models
             return dtrs;
         }
 
+        internal static DTR getByStudent(int CompanyID, DateTime Date, int StudentID)
+        {
+            DTR dtr = new DTR();
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Builder.ConnectionString))
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "SELECT * FROM dtr WHERE company_id = @company_id AND date = @date AND student_id = @student_id";
+                    cmd.Parameters.AddWithValue("company_id", CompanyID);
+                    cmd.Parameters.AddWithValue("date", Date);
+                    cmd.Parameters.AddWithValue("student_id", StudentID);
+                    con.Open();
+                    using (MySqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            dtr.ID = rdr.GetInt32(0);
+                            dtr.CompanyID = rdr.GetInt32(1);
+                            dtr.Date = rdr.GetDateTime(2);
+                            dtr.StudentID = rdr.GetInt32(3);
+                            dtr.RegularHour = rdr.GetDecimal(4);
+                            dtr.RegularDay = rdr.GetDecimal(5);
+                            dtr.HolidayHour = rdr.GetDecimal(6);
+                            dtr.HolidayDay = rdr.GetDecimal(7);
+                            dtr.LegalHolidayHour = rdr.GetDecimal(8);
+                            dtr.LegalHolidayDay = rdr.GetDecimal(9);
+                            dtr.GuaranteeHour = rdr.GetDecimal(10);
+                            dtr.GuaranteeDay = rdr.GetDecimal(11);
+                            dtr.ExtendedTime = rdr.GetDecimal(12);
+                            dtr.NightPremiumHour = rdr.GetDecimal(13);
+                            dtr.NightPremiumDay = rdr.GetDecimal(14);
+                            dtr.TransportationAllowance = rdr.GetDecimal(15);
+                            dtr.SaturdayHour = rdr.GetDecimal(16);
+                            dtr.SaturdayDay = rdr.GetDecimal(17);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorTrapper.Log(ex, LogOptions.PromptTheUser);
+            }
+            return dtr;
+        }
+
         internal void Save()
         {
             try

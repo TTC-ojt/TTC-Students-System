@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GN.TTC.Students.Views.Payroll
@@ -15,7 +16,12 @@ namespace GN.TTC.Students.Views.Payroll
         }
 
         string status = "";
+
+        private Models.Student student = new Models.Student();
+        private List<Models.Student> students = new List<Models.Student>();
+
         private Controllers.Payroll cPayroll;
+
         List<Models.InPlant> inplants = new List<Models.InPlant>();
         Models.InPlant inplant = new Models.InPlant();
         Models.Company company = new Models.Company();
@@ -23,18 +29,19 @@ namespace GN.TTC.Students.Views.Payroll
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            CheckDataGrid();
-            foreach (DataGridViewRow row in dgvCompanyOfEmployment.Rows)
+            if (student.ID > 0)
             {
-                int id = Convert.ToInt32(row.Cells[0].Value);
-                inplant = inplants.Find(c => c.ID == id);
-                if (company.TransportationAllowance>0)
-                {
-                    //inplant.TransportationAllowance = Convert.ToDecimal(row.Cells["dgcTransportationAllowance"].Value);
-                }
+                status = student.Status;
+                if (inplant.ID == 0) inplant = Models.InPlant.getByStudent(student.ID);
+                inplant.CompanyID = company.ID;
+                inplant.StartDate = dtpStartDate.Value;
+                inplant.EndDate = dtpEndDate.Value;
+                inplant.StudentID = student.ID;
                 inplant.Save();
+                student.Status = "IN-PLANT";
+                student.Save();
+                LoadInPlants(sender, e);
             }
-            LoadInPlants(sender, e);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -53,47 +60,18 @@ namespace GN.TTC.Students.Views.Payroll
             LoadInPlants(sender, e);
         }
 
-        private void btnAddTrainee_Click(object sender, EventArgs e)
-        {
-            SelectStudent ss = new SelectStudent();
-            ss.ShowDialog();
-            Models.Student student = ss.student;
-            status = student.Status;
-            Models.InPlant inplant = Models.InPlant.getByStudent(student.ID);
-            inplant.CompanyID = company.ID;
-            inplant.StartDate = dtpStartDate.Value;
-            inplant.EndDate = dtpEndDate.Value;
-            inplant.StudentID = student.ID;
-            inplant.Save();
-            student.Status = "IN-PLANT";
-            student.Save();
-            LoadInPlants(sender, e);
-        }
-
         private void LoadInPlants(object sender, EventArgs e)
         {
-            inplants = Models.InPlant.getAllByCompanyAndDate(company.ID, dtpStartDate.Value, dtpEndDate.Value);
+            inplants = Models.InPlant.getAllByCompany(company.ID);
             dgvCompanyOfEmployment.Rows.Clear();
+            int c = 1;
             foreach (Models.InPlant inplant in inplants)
             {
                 Models.Student student = Models.Student.getByID(inplant.StudentID);
-                dgvCompanyOfEmployment.Rows.Add(inplant.ID,student.Number,student.GetFullName());
+                dgvCompanyOfEmployment.Rows.Add(inplant.ID,c,student.GetFullName(), inplant.StartDate.ToShortDateString(), inplant.EndDate.ToShortDateString());
+                c++;
             }
             dgvCompanyOfEmployment.ClearSelection();
-        }
-
-        private void CheckDataGrid()
-        {
-            foreach (DataGridViewRow row in dgvCompanyOfEmployment.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.Value == null)
-                        cell.Value = (0m).ToString("N");
-                    if (string.IsNullOrWhiteSpace(cell.Value.ToString()))
-                        cell.Value = (0m).ToString("N");
-                }
-            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -109,7 +87,7 @@ namespace GN.TTC.Students.Views.Payroll
             printPreviewDialog.ShowDialog();
         }
 
-        private void btnSave_Click_1(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvCompanyOfEmployment.SelectedRows.Count > 0)
             {
@@ -137,6 +115,87 @@ namespace GN.TTC.Students.Views.Payroll
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
             e.Graphics.DrawImage(img, e.PageBounds.Width / 2 - img.Width / 2, 50);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.TextLength > 2)
+            {
+                students = Models.Student.Find(txtSearch.Text, 0, 0);
+                lbxStudents.Items.Clear();
+                foreach (Models.Student student in students)
+                {
+                    if (txtSearch.Text.Any(char.IsDigit))
+                    {
+                        lbxStudents.Items.Add(student.Number);
+                    }
+                    else
+                    {
+                        lbxStudents.Items.Add(student.GetFullName());
+                    }
+                }
+                lbxStudents.Show();
+            }
+            else
+            {
+                lbxStudents.Hide();
+            }
+        }
+
+        private void LoadStudent()
+        {
+            lblStudentNumber.Text = student.Number;
+            lblStudentName.Text = student.GetFullName();
+        }
+
+        private void lbxStudents_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && lbxStudents.SelectedIndex > -1)
+            {
+                txtSearch.Clear();
+                student = students[lbxStudents.SelectedIndex];
+                lbxStudents.Hide();
+                LoadStudent();
+            }
+        }
+
+        private void dgvCompanyOfEmployment_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCompanyOfEmployment.SelectedRows.Count > 0)
+            {
+                int id = Convert.ToInt32(dgvCompanyOfEmployment.SelectedRows[0].Cells[0].Value);
+                inplant = inplants.Find(i => i.ID == id);
+                student = Models.Student.getByID(inplant.StudentID);
+                txtSearch.Enabled = false;
+            } else
+            {
+                inplant = new Models.InPlant();
+                student = new Models.Student();
+                txtSearch.Enabled = true;
+            }
+            lblStudentNumber.Text = "Student #: " + student.Number;
+            lblStudentName.Text = "Student Name: " + student.GetFullName();
+            dtpStartDate.Value = inplant.StartDate;
+            dtpEndDate.Value = inplant.EndDate;
+        }
+
+        private void lbxStudents_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (lbxStudents.SelectedIndex > -1)
+            {
+                txtSearch.Clear();
+                student = students[lbxStudents.SelectedIndex];
+                lbxStudents.Hide();
+                LoadStudent();
+            }
+        }
+
+        private void InPlants_Load(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn col in dgvCompanyOfEmployment.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
     }
 }

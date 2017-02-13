@@ -74,9 +74,10 @@
             // 
             this.btnComputeTime.AutoSize = true;
             this.btnComputeTime.Enabled = false;
-            this.btnComputeTime.Location = new System.Drawing.Point(919, 110);
+            this.btnComputeTime.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComputeTime.Location = new System.Drawing.Point(898, 108);
             this.btnComputeTime.Name = "btnComputeTime";
-            this.btnComputeTime.Size = new System.Drawing.Size(85, 23);
+            this.btnComputeTime.Size = new System.Drawing.Size(111, 25);
             this.btnComputeTime.TabIndex = 3;
             this.btnComputeTime.Text = "Compute Time";
             this.btnComputeTime.UseVisualStyleBackColor = true;
@@ -84,9 +85,10 @@
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(647, 60);
+            this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDate.Location = new System.Drawing.Point(751, 56);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpDate.Size = new System.Drawing.Size(258, 24);
             this.dtpDate.TabIndex = 1;
             this.dtpDate.ValueChanged += new System.EventHandler(this.LoadInPlants);
             // 
@@ -209,11 +211,11 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(597, 62);
+            this.label25.Location = new System.Drawing.Point(711, 59);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(44, 16);
+            this.label25.Size = new System.Drawing.Size(39, 16);
             this.label25.TabIndex = 30;
-            this.label25.Text = "DATE:";
+            this.label25.Text = "Date:";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5

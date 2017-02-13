@@ -77,6 +77,8 @@
             this.rbtnHighSchoolGraduate = new System.Windows.Forms.RadioButton();
             this.rbtnALS = new System.Windows.Forms.RadioButton();
             this.rbtnPostSecondary = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtGuardian = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -210,6 +212,8 @@
             this.tableLayoutPanel3.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.grpGender, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.grpEmployment, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 7);
+            this.tableLayoutPanel3.Controls.Add(this.txtGuardian, 1, 7);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -812,6 +816,30 @@
             this.rbtnPostSecondary.Text = "Post Secondary";
             this.rbtnPostSecondary.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(62, 198);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 31);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Birthplace:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtGuardian
+            // 
+            this.txtGuardian.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel3.SetColumnSpan(this.txtGuardian, 2);
+            this.txtGuardian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtGuardian.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardian.Location = new System.Drawing.Point(154, 198);
+            this.txtGuardian.Margin = new System.Windows.Forms.Padding(0);
+            this.txtGuardian.Name = "txtGuardian";
+            this.txtGuardian.Size = new System.Drawing.Size(266, 26);
+            this.txtGuardian.TabIndex = 3;
+            // 
             // PersonalInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -828,6 +856,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -898,5 +927,7 @@
         private System.Windows.Forms.TextBox txtEmployerAddress;
         private System.Windows.Forms.TextBox txtEmployer;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtGuardian;
     }
 }

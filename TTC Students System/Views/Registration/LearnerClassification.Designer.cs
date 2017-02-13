@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LearnerClassification));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nudTuition = new System.Windows.Forms.NumericUpDown();
             this.btnShowExaminations = new System.Windows.Forms.Button();
             this.txtVoucherNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnFinish = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtClassification = new System.Windows.Forms.TextBox();
             this.txtScholarshipPackage = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.nudTuition = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTuition)).BeginInit();
             this.SuspendLayout();
@@ -62,23 +62,37 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtClassification);
             this.panel1.Controls.Add(this.txtScholarshipPackage);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(590, 404);
             this.panel1.TabIndex = 0;
             // 
+            // nudTuition
+            // 
+            this.nudTuition.DecimalPlaces = 2;
+            this.nudTuition.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudTuition.Location = new System.Drawing.Point(85, 286);
+            this.nudTuition.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nudTuition.Name = "nudTuition";
+            this.nudTuition.Size = new System.Drawing.Size(120, 25);
+            this.nudTuition.TabIndex = 29;
+            // 
             // btnShowExaminations
             // 
             this.btnShowExaminations.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowExaminations.Location = new System.Drawing.Point(178, 112);
+            this.btnShowExaminations.Location = new System.Drawing.Point(189, 113);
             this.btnShowExaminations.Name = "btnShowExaminations";
-            this.btnShowExaminations.Size = new System.Drawing.Size(138, 23);
+            this.btnShowExaminations.Size = new System.Drawing.Size(219, 38);
             this.btnShowExaminations.TabIndex = 1;
             this.btnShowExaminations.Text = "Show Form";
             this.btnShowExaminations.UseVisualStyleBackColor = true;
@@ -88,7 +102,7 @@
             // 
             this.txtVoucherNumber.BackColor = System.Drawing.Color.White;
             this.txtVoucherNumber.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVoucherNumber.Location = new System.Drawing.Point(6, 205);
+            this.txtVoucherNumber.Location = new System.Drawing.Point(6, 212);
             this.txtVoucherNumber.Margin = new System.Windows.Forms.Padding(0);
             this.txtVoucherNumber.Name = "txtVoucherNumber";
             this.txtVoucherNumber.Size = new System.Drawing.Size(183, 25);
@@ -141,6 +155,20 @@
             this.label5.Text = "MATB, NCAE, YP4SC";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.BackColor = System.Drawing.Color.DarkGreen;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(6, 249);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(581, 29);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "TUITION FEE";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -180,7 +208,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(192, 189);
+            this.label9.Location = new System.Drawing.Point(192, 195);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(248, 16);
             this.label9.TabIndex = 27;
@@ -193,12 +221,25 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(77, 42);
+            this.label1.Location = new System.Drawing.Point(7, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 16);
+            this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Classification";
+            this.label1.Text = "Classification:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(7, 290);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 16);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Tuition Fee:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -206,7 +247,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 189);
+            this.label7.Location = new System.Drawing.Point(3, 196);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 16);
             this.label7.TabIndex = 28;
@@ -217,62 +258,21 @@
             // 
             this.txtClassification.BackColor = System.Drawing.Color.White;
             this.txtClassification.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClassification.Location = new System.Drawing.Point(189, 38);
+            this.txtClassification.Location = new System.Drawing.Point(91, 41);
             this.txtClassification.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
             this.txtClassification.Name = "txtClassification";
-            this.txtClassification.Size = new System.Drawing.Size(189, 25);
+            this.txtClassification.Size = new System.Drawing.Size(496, 25);
             this.txtClassification.TabIndex = 0;
             // 
             // txtScholarshipPackage
             // 
             this.txtScholarshipPackage.BackColor = System.Drawing.Color.White;
             this.txtScholarshipPackage.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScholarshipPackage.Location = new System.Drawing.Point(195, 205);
+            this.txtScholarshipPackage.Location = new System.Drawing.Point(195, 212);
             this.txtScholarshipPackage.Margin = new System.Windows.Forms.Padding(0);
             this.txtScholarshipPackage.Name = "txtScholarshipPackage";
-            this.txtScholarshipPackage.Size = new System.Drawing.Size(380, 25);
+            this.txtScholarshipPackage.Size = new System.Drawing.Size(391, 25);
             this.txtScholarshipPackage.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.BackColor = System.Drawing.Color.DarkGreen;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(6, 249);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(581, 29);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "TUITION FEE";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(112, 287);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 16);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Tuition Fee:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // nudTuition
-            // 
-            this.nudTuition.DecimalPlaces = 2;
-            this.nudTuition.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudTuition.Location = new System.Drawing.Point(195, 284);
-            this.nudTuition.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nudTuition.Name = "nudTuition";
-            this.nudTuition.Size = new System.Drawing.Size(120, 25);
-            this.nudTuition.TabIndex = 29;
             // 
             // LearnerClassification
             // 

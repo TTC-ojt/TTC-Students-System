@@ -31,6 +31,8 @@ namespace GN.TTC.Students.Views.Status
 
         private void UpdateGraduate_Load(object sender, EventArgs e)
         {
+            stop = Models.Stop.getByStudent(student.ID);
+            txtReason.Text = stop.Reason;
             lblStudentNumber.Text = student.Number;
             lblFullName.Text = student.GetFullName();
         }

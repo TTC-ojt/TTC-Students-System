@@ -184,19 +184,22 @@ namespace GN.TTC.Students.Views.Payroll
         private void LoadInPlants(object sender, EventArgs e)
         {
             dtrs = Models.DTR.getAllByCompanyAndDate(company.ID, dtpDate.Value, dtpDate.Value);
-            List<Models.InPlant> inplants = Models.InPlant.getAllByCompanyAndDate(company.ID, dtpDate.Value, dtpDate.Value);
-            if (dtrs.Count != inplants.Count)
+            List<Models.InPlant> inplants = Models.InPlant.getAllByCompany(company.ID);
+            foreach (Models.InPlant inplant in inplants)
             {
-                foreach (Models.InPlant inplant in inplants)
+                if (inplant.StartDate <= dtpDate.Value && inplant.EndDate.AddMonths(1).AddDays(1) >= dtpDate.Value)
                 {
-                    Models.DTR dtr = new Models.DTR();
-                    dtr.CompanyID = company.ID;
-                    dtr.StudentID = inplant.StudentID;
-                    dtr.Date = dtpDate.Value;
-                    dtr.Save();
+                    Models.DTR dtr = Models.DTR.getByStudent(company.ID, dtpDate.Value, inplant.StudentID);
+                    if (dtr.ID > 0)
+                    {
+                        dtr.CompanyID = company.ID;
+                        dtr.StudentID = inplant.StudentID;
+                        dtr.Date = dtpDate.Value;
+                        dtr.Save();
+                    }
                 }
-                dtrs = Models.DTR.getAllByCompanyAndDate(company.ID, dtpDate.Value, dtpDate.Value);
             }
+            dtrs = Models.DTR.getAllByCompanyAndDate(company.ID, dtpDate.Value, dtpDate.Value);
             dgvCompanyOfEmployment.Rows.Clear();
             GenerateColumns();
             foreach (Models.DTR dtr in dtrs)
